@@ -1,0 +1,13 @@
+src
+test
+node_modules
+tsconfig*
+.*
+base.*
+yarn.*
+yarn-error.log
+tsconfig.tsbuildinfo
+scripts
+assets
+.prettierrc
+.cache

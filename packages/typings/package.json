@@ -1,0 +1,17 @@
+{
+    "name": "@bfmeta/transaction-maker-typings",
+    "version": "1.0.0",
+    "description": "transaction-maker-typings for the third party",
+    "main": "build/cjs/index.js",
+    "type": "commonjs",
+    "keywords": [
+        "transaction-maker-typings"
+    ],
+    "author": "BFMeta Team",
+    "license": "cc-by-4.0",
+    "gitHead": "c37a08f35298a83ad65d6d1a07b577e5f2fbf436",
+    "files": [
+        "build"
+    ],
+    "types": "build/cjs/index.d.ts"
+}

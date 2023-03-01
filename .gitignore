@@ -1,0 +1,13 @@
+package-lock.json
+.vscode/
+.vs/
+node_modules
+.idea/
+sdk.code-workspace
+genesisInfos
+build
+.cache
+bcf*
+assets
+blobs*
+transaction-maker*

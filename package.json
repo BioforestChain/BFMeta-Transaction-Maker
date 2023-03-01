@@ -1,0 +1,31 @@
+{
+    "name": "@bfmeta/transaction-maker",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "version": "0.0.0",
+    "description": "transaction-maker for the third party",
+    "scripts": {
+        "package": "node ./scripts/package.js",
+        "lsts": "node ./scripts/listAllFile.js",
+        "clear": "node ./scripts/rmBuild.js",
+        "dev": "tsc --build -w",
+        "dev:all": "tsc --build ./tsconfig.all.json -w",
+        "build": "tsc --build ./tsconfig.all.json",
+        "rebuild": "yarn clear & yarn build",
+        "publ": "lerna publish",
+        "publ:force": "lerna publish --force-publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:BioforestChain/BFMeta-Transaction-Maker.git"
+    },
+    "author": "BFMeta Team",
+    "license": "cc-by-4.0",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^14.18.5",
+        "lerna": "^3.20.2"
+    }
+}

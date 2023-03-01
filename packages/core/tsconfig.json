@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.base.cjs",
+    "compilerOptions": {
+        "outDir": "./build/cjs",
+        "rootDir": "./src"
+    },
+    "files": [
+        "src/@types.common.ts",
+        "src/@types.crossChain.ts",
+        "src/@types.server.ts",
+        "src/@types.transaction.ts",
+        "src/@types.ts",
+        "src/constants.ts",
+        "src/index.ts",
+        "src/requestParameterParser.ts"
+    ],
+    "references": [
+        {
+            "path": "../typings/tsconfig.json"
+        }
+    ]
+}
