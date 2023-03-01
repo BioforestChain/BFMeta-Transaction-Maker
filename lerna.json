@@ -1,13 +1,13 @@
 {
-    "packages": [
-        "packages/*",
-        "packages/@types/*"
-    ],
-    "version": "1.0.4",
-    "useWorkspaces": true,
-    "npmClient": "yarn",
-    "publishConifg": {
-        "access": "public"
-    },
-    "exact": true
+  "packages": [
+    "packages/*",
+    "packages/@types/*"
+  ],
+  "version": "1.0.5",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "publishConifg": {
+    "access": "public"
+  },
+  "exact": true
 }

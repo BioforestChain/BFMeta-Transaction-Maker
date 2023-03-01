@@ -1,6 +1,6 @@
 {
     "name": "@bfmeta/transaction-maker-typings",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "transaction-maker-typings for the third party",
     "main": "build/cjs/index.js",
     "type": "commonjs",
@@ -9,7 +9,7 @@
     ],
     "author": "BFMeta Team",
     "license": "cc-by-4.0",
-    "gitHead": "e54b1a5c9ae87d6b507f8a307f22cde703de1dcf",
+    "gitHead": "76414dc730b25499c89fff0061aaff5c8dd1a64e",
     "files": [
         "build"
     ],
