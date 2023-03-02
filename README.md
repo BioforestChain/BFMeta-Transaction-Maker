@@ -2,13 +2,13 @@
 
 ## Installation - 安装
 
- `$ npm install @bfmeta/transaction-maker-api`
+`$ npm install @bfmeta/transaction-maker-api`
 
 ### Requrements - 必要条件
 
-*   npm
+-   npm
 
-*   typescript
+-   typescript
 
 ## Docs & Community - 文档 & 社区
 
@@ -23,20 +23,20 @@
 // 运行目录下建 config/config.json 填入以下内容
 {
     "//port": "交易服务器监听的端口号",
-    "port": 8888,
+    port: 8888,
     "//chainNodeIps": "可用的链节点 ip",
-    "chainNodeIps": ["127.0.0.1"],
+    chainNodeIps: ["127.0.0.1"],
     "//broadcastTimeout": "广播超时时间，默认 30000",
-    "broadcastTimeout": 30000,
+    broadcastTimeout: 30000,
     "//genesisInfoConfig": "创世块信息",
-    "genesisInfoConfig": {
+    genesisInfoConfig: {
         "//genesisBlockPath": "创世块路径",
-        "genesisBlockPath": "genesisInfos/bfmtest-genesisBlock-testnet.json",
+        genesisBlockPath: "genesisInfos/bfmtest-genesisBlock-testnet.json",
         "//genesisBlockLicensePath": "创世块授权文件路径",
-        "genesisBlockLicensePath": "genesisInfos/bfmtest-license-testnet.json"
+        genesisBlockLicensePath: "genesisInfos/bfmtest-license-testnet.json"
     },
     "//lang": "密钥类型 cn 汉语、jp 日语、sp 西班牙语、it 意大利语、fr 法语、en 英语",
-    "lang": "en"
+    lang: "en"
 }
 
 运行 transaction-marker-server 服务
