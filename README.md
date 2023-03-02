@@ -1,4 +1,4 @@
-# BFChain-SDK
+# BFMeta-Transaction-Maker
 
 ## Installation - 安装
 
@@ -10,7 +10,7 @@
 
 -   typescript
 
-## Docs & Community - 文档 & 社区
+<!-- ## Docs & Community - 文档 & 社区 -->
 
 <!-- 这里写我们的社区及文档的地址 -->
 
@@ -39,14 +39,14 @@
     lang: "en"
 }
 
-运行 transaction-marker-server 服务
+// 运行 transaction-marker-server 服务
 
 ```
 
 ### Client
 
 ```ts
-import { Api } from "@bfmeta/transaction-maker-api";
+import { BFMetaTrMaker } from "@bfmeta/transaction-maker-api";
 import { PARENT_ASSET_TYPE } from "@bfmeta/transaction-maker-core";
 
 // 也可以再运行目录下建 config/config.json 填入以下内容，new 的时候就不用传参
@@ -58,13 +58,13 @@ const config: TransactionMaker.Api.ConfigOptions = {
     requestTimeout: 10000,
 };
 
-const sdk = new Sdk(config);
+const bfmetaTrMaker = new BFMetaTrMaker(config);
 
 // 生成交易然后广播
-const result = await api.transaction.generateTransferAny(argv, ipInfo.ip);
+const result = await bfmetaTrMaker.transaction.generateTransferAny(argv, ipInfo.ip);
 
 if (result.success) {
-    const resp = await api.transaction.broadcastTransaction({
+    const resp = await bfmetaTrMaker.transaction.broadcastTransaction({
         transaction: result.result,
         ip: ipInfo.nodeIp,
     });
@@ -77,11 +77,11 @@ if (result.success) {
     console.log(result);
 }
 
-或者
+// 或者
 
 // 生成交易并且广播
 
-const result = await api.transaction.sendTransferAny(argv, ipInfo);
+const result = await bfmetaTrMaker.transaction.sendTransferAny(argv, ipInfo);
 console.log(result);
 ```
 

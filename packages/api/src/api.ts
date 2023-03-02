@@ -2,7 +2,7 @@ import { HttpHelper } from "./httpHelper";
 import { CommonApi, TransactionApi, MigrateCertificateApi } from "./atom_api";
 import { Config } from "./config";
 
-export class Api {
+export class BFMetaTrMaker {
     private __config: Config;
     private __commonApi!: CommonApi;
     private __transactionApi!: TransactionApi;
