@@ -7,7 +7,6 @@
     "version": "0.0.0",
     "description": "transaction-maker for the third party",
     "scripts": {
-        "package": "node ./scripts/package.js",
         "lsts": "node ./scripts/listAllFile.js",
         "clear": "node ./scripts/rmBuild.js",
         "dev": "tsc --build -w",

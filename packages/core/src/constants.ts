@@ -6,14 +6,6 @@ export const enum REQUEST_TYPE {
     POST = "POST",
 }
 
-/**区块链网络类型 */
-export const enum BLOCK_CHAIN_NET_WORK_TYPE {
-    /**测试网络 */
-    TESTNET = "testnet",
-    /**正式网络 */
-    MAINNET = "mainnet",
-}
-
 /**主密钥的语言类型 */
 export const enum SECRET_LANGUAGE_TYPE {
     /**汉语 */
@@ -28,12 +20,6 @@ export const enum SECRET_LANGUAGE_TYPE {
     FRENCH = "fr",
     /**英语 */
     ENGLISH = "en",
-}
-
-/**Read File Type */
-export const enum READ_FILE_TYPE {
-    READ_FILE_ASYNC = 0,
-    CREATE_READ_STREAM = 1,
 }
 
 //二进制数据单文件大小限制

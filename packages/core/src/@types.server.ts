@@ -1,20 +1,10 @@
 declare namespace TransactionMaker {
     namespace Server {
         interface GenesisInfoConfig {
-            /**创世块是否由外部提供, 默认在 genesisInfos 目录, 默认值 false */
-            isGenesisBlockProvidedExternally: boolean;
-            /**网络类型: testnet || mainnet, 默认值 mainnet */
-            networkType: BLOCK_CHAIN_NET_WORK_TYPE;
-            /**链名，默认值 bfchain */
-            chainName: string;
-            /**区块链链权益名, 默认值 BFT */
-            chainAssetType: string;
-            /**每轮的区块数量, 默认值 57 */
-            blockPerRound: number;
-            /**锻造区块的时间间隔, 默认值 128 */
-            forgeInterval: number;
-            /**创世块的根路径，如果 isGenesisBlockProvidedExternally，并且配置了 genesisBlockRootPath，则从此目录搜索创世块 */
-            genesisBlockRootPath?: string;
+            /**创世块路径 */
+            genesisBlockPath: string;
+            /**创世块授权文件路径 */
+            genesisBlockLicensePath: string;
         }
 
         type GenesisInfoConfigOptions = Partial<GenesisInfoConfig>;

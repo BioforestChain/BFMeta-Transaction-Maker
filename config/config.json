@@ -12,18 +12,10 @@
     "broadcastTimeout": 30000,
     "//genesisInfoConfig": "创世块信息",
     "genesisInfoConfig": {
-        "//isGenesisBlockProvidedExternally": "创世块是否从外部引入",
-        "isGenesisBlockProvidedExternally": false,
-        "//networkType": "链节点的网络类型 testnet 测试网络 mainnet 正式网络",
-        "networkType": "testnet",
-        "//chainName": "链名",
-        "chainName": "bfmetatest",
-        "//chainAssetType": "链主权益名",
-        "chainAssetType": "BFMTEST",
-        "//blockPerRound": "每轮锻造的区块数量",
-        "blockPerRound": 57,
-        "//forgeInterval": "每个区块的时间间隔",
-        "forgeInterval": 10
+        "//genesisBlockPath": "创世块路径",
+        "genesisBlockPath": "genesisInfos/bfmtest-genesisBlock-testnet.json",
+        "//genesisBlockLicensePath": "创世块授权文件路径",
+        "genesisBlockLicensePath": "genesisInfos/bfmtest-license-testnet.json"
     },
     "//lang": "密钥类型 cn 汉语、jp 日语、sp 西班牙语、it 意大利语、fr 法语、en 英语",
     "lang": "en"

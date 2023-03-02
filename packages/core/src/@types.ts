@@ -1,8 +1,6 @@
 declare namespace TransactionMaker {
     type REQUEST_TYPE = import("./constants").REQUEST_TYPE;
     type SECRET_LANGUAGE_TYPE = import("./constants").SECRET_LANGUAGE_TYPE;
-    type BLOCK_CHAIN_NET_WORK_TYPE = import("./constants").BLOCK_CHAIN_NET_WORK_TYPE;
-    type READ_FILE_TYPE = import("./constants").READ_FILE_TYPE;
 
     type EXCHANGE_DIRECTION = import("./constants").EXCHANGE_DIRECTION;
     type SPECIAL_ASSET_TYPE = import("./constants").SPECIAL_ASSET_TYPE;
