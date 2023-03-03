@@ -28,7 +28,7 @@ export class BFMetaTrMaker {
         return this.__transactionApi;
     }
 
-    get migrateCertificateApi() {
+    get migrateCertificate() {
         return this.__migrateCertificateApi;
     }
 
