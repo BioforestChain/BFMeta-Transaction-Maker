@@ -38,18 +38,21 @@
     "//lang": "密钥类型 cn 汉语、jp 日语、sp 西班牙语、it 意大利语、fr 法语、en 英语",
     lang: "en"
 }
-
 // 运行 transaction-marker-server 服务
 
 ```
+
+- 程序位于 https://github.com/BioforestChain/BFMeta-Transaction-Maker/releases/tag/v1.0.8
+- step
+    1. 新建config/config.json 于项目目录中
+    2. 将下载的程序解压至项目根目录
+    3. 执行程序 transaction-maker-server
 
 ### Client
 
 ```ts
 import { BFMetaTrMaker } from "@bfmeta/transaction-maker-api";
 import { PARENT_ASSET_TYPE } from "@bfmeta/transaction-maker-core";
-
-// 也可以再运行目录下建 config/config.json 填入以下内容，new 的时候就不用传参
 
 const config: TransactionMaker.Api.ConfigOptions = {
     "//ips": "交易服务器的 ip，端口",
@@ -86,3 +89,5 @@ console.log(result);
 ```
 
 ## Changelog - 更新日志
+-   1.0.8
+    - 更新文档，发布1.0.8server程序
