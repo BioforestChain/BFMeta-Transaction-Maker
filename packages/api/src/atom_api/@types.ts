@@ -78,6 +78,7 @@ declare namespace TransactionMaker {
         type GenerateCiphertextSignatureApi = import("./atom_common").GenerateCiphertextSignatureApi;
         type GenerateBlobSeedApi = import("./atom_common").GenerateBlobSeedApi;
         type TimeCorrectingApi = import("./atom_common").TimeCorrectingApi;
+        type MaybeHeightApi = import("./atom_common").MaybeHeightApi;
         type GenerateRegisterChainCertificateApi = import("./atom_common").GenerateRegisterChainCertificateApi;
     }
 }

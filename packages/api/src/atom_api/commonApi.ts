@@ -11,6 +11,7 @@ import {
     GenerateCiphertextSignatureApi,
     GenerateBlobSeedApi,
     TimeCorrectingApi,
+    MaybeHeightApi,
     GenerateRegisterChainCertificateApi,
 } from "./atom_common";
 
@@ -38,6 +39,7 @@ export class CommonApi {
         const generateCiphertextSignatureApi = new GenerateCiphertextSignatureApi(networkHelper);
         const generateBlobSeedApi = new GenerateBlobSeedApi(networkHelper);
         const timeCorrectingApi = new TimeCorrectingApi(networkHelper);
+        const maybeHeightApi = new MaybeHeightApi(networkHelper);
         const generateRegisterChainCertificateApi = new GenerateRegisterChainCertificateApi(networkHelper);
 
         COMMON_API_MAP.set(verifyAddressApi.EXEC_API_PATH, verifyAddressApi);
@@ -52,6 +54,7 @@ export class CommonApi {
         COMMON_API_MAP.set(generateCiphertextSignatureApi.EXEC_API_PATH, generateCiphertextSignatureApi);
         COMMON_API_MAP.set(generateBlobSeedApi.EXEC_API_PATH, generateBlobSeedApi);
         COMMON_API_MAP.set(timeCorrectingApi.EXEC_API_PATH, timeCorrectingApi);
+        COMMON_API_MAP.set(maybeHeightApi.EXEC_API_PATH, maybeHeightApi);
         COMMON_API_MAP.set(generateRegisterChainCertificateApi.EXEC_API_PATH, generateRegisterChainCertificateApi);
 
         Object.freeze(COMMON_API_MAP);
@@ -142,6 +145,13 @@ export class CommonApi {
     /**时间校正 */
     async timeCorrecting(argv: TransactionMaker.Common.TimeCorrectingParams = {}, ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.TimeCorrectingApi>(COMMON_API_PATH.TIME_CORRECTING_API_PATH);
+        const result = await api.sendPostRequest(argv, ip);
+        return result;
+    }
+
+    /**时间校正 */
+    async maybeHeight(argv: TransactionMaker.Common.MaybeHeightParams = {}, ip?: string) {
+        const api = this.__getCommonApi<TransactionMaker.Common.MaybeHeightApi>(COMMON_API_PATH.MAYBE_HEIGHT_API_PATH);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }

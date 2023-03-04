@@ -21,7 +21,7 @@ declare namespace TransactionMaker {
             range?: string[];
             /**事件的手续费 */
             fee: string;
-            /**事件的发起高度，0-9 组成并且不包含小点，可选，默认使用当前区块链的最新高度 */
+            /**事件的发起高度，0-9 组成并且不包含小点 */
             applyBlockHeight: number;
             /**事件备注信息，默认为空 */
             remark?: { [key: string]: string };

@@ -123,6 +123,11 @@ declare namespace TransactionMaker {
             ip?: string;
         }
 
+        interface MaybeHeightParams extends CommonParams {
+            /**目标节点 ip */
+            ip?: string;
+        }
+
         interface GenerateRegisterChainCertificateParams extends CommonParams {
             /**创建账户密钥 */
             generatorSecret: string;

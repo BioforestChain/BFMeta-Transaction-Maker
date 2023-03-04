@@ -240,6 +240,8 @@ export const enum COMMON_API_PATH {
     GENERATE_BLOB_SEED = "/common/generateBlobSeed",
     /**服务器时间校正 */
     TIME_CORRECTING_API_PATH = "/common/correcting",
+    /**获取节点的可能最新区块高度 */
+    MAYBE_HEIGHT_API_PATH = "/common/maybeHeight",
 
     /**生成注册链凭证 */
     GENERATE_REGISTER_CHAIN_CERTIFICATE_API_PATH = "/common/generateRegisterChainCertificate",
