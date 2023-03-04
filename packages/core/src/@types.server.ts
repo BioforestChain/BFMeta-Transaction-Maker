@@ -64,6 +64,9 @@ declare namespace TransactionMaker {
         type CommonReturn<T> = CommonFailureReturn | CommonSuccessReturn<T>;
 
         type BroadcastTransactionResponse = {
+            /**交易的 id */
+            signature: string;
+            /**交易广播状态 */
             status: string;
             /**交易的接收状态 */
             newTrsStatus: string;
