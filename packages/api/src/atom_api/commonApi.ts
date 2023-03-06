@@ -149,7 +149,7 @@ export class CommonApi {
         return result;
     }
 
-    /**时间校正 */
+    /**获取节点可能的最新高度 */
     async maybeHeight(argv: TransactionMaker.Common.MaybeHeightParams = {}, ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.MaybeHeightApi>(COMMON_API_PATH.MAYBE_HEIGHT_API_PATH);
         const result = await api.sendPostRequest(argv, ip);

@@ -33,7 +33,7 @@ export abstract class TransactionApi<T extends TransactionMaker.TransactionJSON>
                 success: false,
                 error: {
                     code: "7001",
-                    message: `request api ${this.GENERATE_API_PATH} error`,
+                    message: `broadcast transaction ${this.BROADCAST_API_PATH} error`,
                     description: e.message,
                 },
             };

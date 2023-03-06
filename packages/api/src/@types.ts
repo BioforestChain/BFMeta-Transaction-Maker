@@ -11,7 +11,7 @@ declare namespace TransactionMaker {
             error: {
                 code?: string;
                 message: string;
-                description?: string;
+                detail: string;
             };
         }
 

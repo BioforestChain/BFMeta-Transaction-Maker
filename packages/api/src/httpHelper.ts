@@ -24,7 +24,7 @@ export class HttpHelper {
                 return resolve(body as any);
             });
             req.setTimeout(this.__config.config.requestTimeout, () => {
-                return reject("timeout");
+                return reject(new Error("timeout"));
             });
             req.on("error", (e) => {
                 return reject(e);
@@ -42,7 +42,7 @@ export class HttpHelper {
                 return resolve(body as any);
             });
             req.setTimeout(this.__config.config.requestTimeout, () => {
-                return reject("timeout");
+                return reject(new Error("timeout"));
             });
             req.on("error", (e) => {
                 return reject(e);
