@@ -46,15 +46,6 @@ declare namespace TransactionMaker {
         type RegisterChainApi = import("./atom_transaction").RegisterChainApi;
         type EmigrateAssetApi = import("./atom_transaction").EmigrateAssetApi;
         type ImmigrateAssetApi = import("./atom_transaction").ImmigrateAssetApi;
-
-        interface TransactionApiSuccessReturn<T extends object> extends TransactionMaker.Api.ApiSuccessReturn {
-            result: T;
-            minFee: string;
-        }
-        interface TransactionApiFailureReturn extends TransactionMaker.Api.ApiFailureReturn {
-            minFee: string;
-        }
-        type TransactionApiReturn<T extends TransactionMaker.TransactionJSON> = TransactionApiSuccessReturn<T> | TransactionApiFailureReturn;
     }
 
     namespace CrossChain {
