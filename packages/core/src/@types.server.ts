@@ -12,6 +12,8 @@ declare namespace TransactionMaker {
         interface Config {
             /**服务监听的端口号 */
             port: number;
+            /**日志等级，info warn debug error，默认 error */
+            loggerLevel: LOGGER_LEVEL;
             /**可用的链节点列表 */
             chainNodeIps: string[];
             /**广播交易超时时间 */
@@ -25,6 +27,8 @@ declare namespace TransactionMaker {
         type ConfigOptions = {
             /**服务监听的端口号 */
             port?: number;
+            /**日志等级，info warn debug error，默认 error */
+            loggerLevel?: LOGGER_LEVEL;
             /**可用的链节点列表 */
             chainNodeIps?: string[];
             /**广播交易超时时间 */

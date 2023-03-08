@@ -12,6 +12,7 @@ declare namespace TransactionMaker {
     type DAPP_TYPE = import("./constants").DAPP_TYPE;
     type NEW_TRANSACTION_REFUSE_REASON = import("./constants").NEW_TRANSACTION_REFUSE_REASON;
     type BNID_TYPE = import("./constants").BNID_TYPE;
+    type LOGGER_LEVEL = import("./constants").LOGGER_LEVEL;
 
     interface TransactionStorageJSON {
         /**事件的索引键，提供额外查询使用的字段名 */

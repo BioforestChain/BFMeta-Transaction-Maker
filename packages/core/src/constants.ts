@@ -114,6 +114,13 @@ export const enum BNID_TYPE {
     MAINNET = "b",
 }
 
+export const enum LOGGER_LEVEL {
+    INFO = "info",
+    DEBUG = "debug",
+    WARN = "warn",
+    ERROR = "error",
+}
+
 /**广播交易 */
 export const BROADCAST_TRANSACTION_API_PATH = "/broadcast";
 
