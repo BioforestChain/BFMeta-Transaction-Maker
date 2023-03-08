@@ -9,11 +9,24 @@ declare namespace TransactionMaker {
 
         type GenesisInfoConfigOptions = Partial<GenesisInfoConfig>;
 
-        interface Config {
+        type LoggerConfig = {
+            /**日志等级，info warn debug error，默认 error */
+            level: LOGGER_LEVEL;
+            /**单文件日志大小 mb */
+            limit: number;
+            /**日志保留份数 */
+            backup: number;
+            /**根据时间切割 */
+            dateExpire: boolean;
+            /**日志滚动时间 */
+            daysToRotate: number;
+        };
+
+        type Config = {
             /**服务监听的端口号 */
             port: number;
-            /**日志等级，info warn debug error，默认 error */
-            loggerLevel: LOGGER_LEVEL;
+            /**日志配置 */
+            loggerConfig: LoggerConfig;
             /**可用的链节点列表 */
             chainNodeIps: string[];
             /**广播交易超时时间 */
@@ -22,13 +35,13 @@ declare namespace TransactionMaker {
             genesisInfoConfig: GenesisInfoConfig;
             /**密码类型: cn 汉语 || jp 日语 || sp 西班牙语 || it 意大利语 || fr 法语 || en 英语, 默认值 en */
             lang: SECRET_LANGUAGE_TYPE;
-        }
+        };
 
         type ConfigOptions = {
             /**服务监听的端口号 */
             port?: number;
             /**日志等级，info warn debug error，默认 error */
-            loggerLevel?: LOGGER_LEVEL;
+            loggerConfig?: Partial<LoggerConfig>;
             /**可用的链节点列表 */
             chainNodeIps?: string[];
             /**广播交易超时时间 */

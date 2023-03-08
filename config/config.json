@@ -6,6 +6,19 @@
 
     "//port": "交易服务器监听的端口号",
     "port": 8888,
+    "//loggerConfig": "日志配置",
+    "loggerConfig": {
+        "//level": "日志等级，info warn debug error，默认 error",
+        "level": "debug",
+        "//limit": "单文件日志大小 mb",
+        "limit": 100,
+        "//backup": "日志保留份数",
+        "backup": 100,
+        "//dateExpire": "根据时间切割",
+        "dateExpire": false,
+        "//daysToRotate": "日志滚动时间",
+        "daysToRotate": 30
+    },
     "//loggerLevel": "日志等级，info warn debug error，默认 error",
     "loggerLevel": "debug",
     "//chainNodeIps": "可用的链节点 ip",

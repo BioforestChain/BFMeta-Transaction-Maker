@@ -24,8 +24,19 @@
 {
     "//port": "交易服务器监听的端口号",
     port: 8888,
-    "//loggerLevel": "日志等级，info warn debug error，默认 error",
-    loggerLevel: "debug",
+    "//loggerConfig": "日志配置",
+    loggerConfig: {
+        "//level": "日志等级，info warn debug error，默认 error",
+        level: "debug",
+        "//limit": "单文件日志大小 mb",
+        limit: 100,
+        "//backup": "日志保留份数",
+        backup: 100,
+        "//dateExpire": "根据时间切割",
+        dateExpire: false,
+        "//daysToRotate": "日志滚动时间",
+        daysToRotate: 30
+    },
     "//chainNodeIps": "可用的链节点 ip",
     chainNodeIps: ["127.0.0.1"],
     "//broadcastTimeout": "广播超时时间，默认 30000",
@@ -44,9 +55,9 @@
 
 ```
 
-- 程序位于 https://github.com/BioforestChain/BFMeta-Transaction-Maker/releases/tag/v1.0.8
-- step
-    1. 新建config/config.json 于项目目录中
+-   程序位于 https://github.com/BioforestChain/BFMeta-Transaction-Maker/releases/tag/v1.0.8
+-   step
+    1. 新建 config/config.json 于项目目录中
     2. 将下载的程序解压至项目根目录
     3. 执行程序 transaction-maker-server
 
@@ -91,5 +102,6 @@ console.log(result);
 ```
 
 ## Changelog - 更新日志
+
 -   1.0.8
-    - 更新文档，发布1.0.8server程序
+    -   更新文档，发布 1.0.8server 程序
