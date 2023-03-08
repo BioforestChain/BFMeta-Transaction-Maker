@@ -16,11 +16,9 @@
         "backup": 100,
         "//dateExpire": "根据时间切割",
         "dateExpire": false,
-        "//daysToRotate": "日志滚动时间",
+        "//daysToRotate": "日志滚动时间 天",
         "daysToRotate": 30
     },
-    "//loggerLevel": "日志等级，info warn debug error，默认 error",
-    "loggerLevel": "debug",
     "//chainNodeIps": "可用的链节点 ip",
     "chainNodeIps": ["127.0.0.1"],
     "//broadcastTimeout": "广播超时时间，默认 30000",

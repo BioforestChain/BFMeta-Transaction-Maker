@@ -34,7 +34,7 @@
         backup: 100,
         "//dateExpire": "根据时间切割",
         dateExpire: false,
-        "//daysToRotate": "日志滚动时间",
+        "//daysToRotate": "日志滚动时间 天",
         daysToRotate: 30
     },
     "//chainNodeIps": "可用的链节点 ip",
