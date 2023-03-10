@@ -77,6 +77,7 @@ declare namespace TransactionMaker {
         }
 
         interface IssueAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**发行的权益信息 */
             assetInfo: {
                 /**发行的权益名，大写字母组成，3-5 个字符 */
                 assetType: string;
@@ -85,6 +86,7 @@ declare namespace TransactionMaker {
             };
         }
         interface TransferAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**转移的权益信息 */
             assetInfo: {
                 /**转移的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
@@ -97,6 +99,7 @@ declare namespace TransactionMaker {
             };
         }
         interface DestoryAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**销毁的权益信息 */
             assetInfo: {
                 /**销毁的权益名，大写字母组成，3-5 个字符 */
                 assetType: string;
@@ -105,6 +108,7 @@ declare namespace TransactionMaker {
             };
         }
         interface GiftAssetTransactionParams extends TransactionCommonParams {
+            /**赠送的权益信息 */
             assetInfo: {
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
@@ -136,9 +140,9 @@ declare namespace TransactionMaker {
                 /**赠送的权益所属链名，小写字母组成，5-10 位 */
                 sourceChainName: string;
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
-                sourceChainMagic: string;
+                sourceChainMagic?: string;
                 /**赠送的权益名称，大写字母组成，3-8 个字符 */
-                assetType: string;
+                assetType?: string;
                 /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
                 /**可被接收的次数，0-9 组成并且不包含小数点，必须大于 0 */
@@ -152,6 +156,7 @@ declare namespace TransactionMaker {
             ciphertext?: string;
         }
         interface TrustAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**委托的权益信息 */
             assetInfo: {
                 /**委托权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
@@ -179,9 +184,9 @@ declare namespace TransactionMaker {
                 /**签收时需要的见证人签名数量，0-9 组成，必须大于 0，最大值为指定的受托人数量+2 */
                 numberOfSignFor: number;
                 /**见证的权益所属链名，小写字母组成，5-10 位 */
-                sourceChainName: string;
+                sourceChainName?: string;
                 /**见证的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
-                sourceChainMagic: string;
+                sourceChainMagic?: string;
                 /**见证的权益名称，大写字母组成，3-8 个字符 */
                 assetType: string;
                 /**见证的权益数量，0-9 组成并且不包含小数点，必须大于0 */
@@ -189,6 +194,7 @@ declare namespace TransactionMaker {
             };
         }
         interface ToExchangeAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**用于交换的资产/权益信息 */
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
@@ -199,6 +205,7 @@ declare namespace TransactionMaker {
                 /**用于交换或交换得到的权益数量，0-9 组成并且不包含小数点 */
                 toExchangeNumber: string;
             };
+            /**被交换的资产/权益信息 */
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
@@ -253,6 +260,7 @@ declare namespace TransactionMaker {
             ciphertext?: string;
         }
         interface DAppTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**发行的 dapp 信息 */
             dappInfo: {
                 /**不包含校验位的 dappid，大写字母或数字组成，7 个字符 */
                 newDappid: string;
@@ -263,6 +271,7 @@ declare namespace TransactionMaker {
             };
         }
         interface DAppPurchasingTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**购买的 dapp 信息 */
             dappInfo: {
                 /**含校验位的 dappid，大写字母或数字组成，8 个字符，最后一位是校验位 */
                 dappid: string;
@@ -273,6 +282,7 @@ declare namespace TransactionMaker {
             };
         }
         interface MarkTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**使用的 dapp 信息 */
             dappInfo: {
                 /**含校验位的 dappid，大写字母或数字组成，8 个字符，最后一位是校验位 */
                 dappid: string;
@@ -313,6 +323,7 @@ declare namespace TransactionMaker {
             deleteRecord?: LocationNameRecordJSON;
         }
         interface ToExchangeSpecialAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**用于交换的资产/权益信息 */
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
@@ -321,6 +332,7 @@ declare namespace TransactionMaker {
                 /**用于交换的权益名，可能为 dappid，位名或者权益名 */
                 toExchangeAsset: string;
             };
+            /**被交换的资产/权益信息 */
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
@@ -369,6 +381,7 @@ declare namespace TransactionMaker {
         }
 
         interface IssueEntityFactoryTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**发行的非同质资产模板信息 */
             factoryInfo: {
                 /**非同质资产模板 */
                 factoryId: string;
@@ -382,6 +395,7 @@ declare namespace TransactionMaker {
         }
         type IssueEntityFactoryTransactionV1Params = IssueEntityFactoryTransactionParams;
         interface IssueEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**发行的非同质资产信息 */
             entityInfo: {
                 /**非同质资产名称 */
                 entityId: string;
@@ -407,6 +421,7 @@ declare namespace TransactionMaker {
             };
         }
         interface DestoryEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**要销毁的非同质资产信息 */
             entityInfo: {
                 /**要销毁的非同质资产发行事件的唯一标识符 */
                 transactionSignature: string;
@@ -446,6 +461,7 @@ declare namespace TransactionMaker {
             taxAssetPrealnum: string;
         }
         interface ToExchangeAnyTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**用于交换的资产信息 */
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
@@ -458,6 +474,7 @@ declare namespace TransactionMaker {
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
             };
+            /**被交换的资产信息 */
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
@@ -520,6 +537,7 @@ declare namespace TransactionMaker {
         }
 
         interface TransferAnyTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**转移的资产信息 */
             assetInfo: {
                 /**转移的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
@@ -537,6 +555,7 @@ declare namespace TransactionMaker {
         }
 
         interface GiftAnyTransactionParams extends TransactionCommonParams {
+            /**赠送的资产信息 */
             assetInfo: {
                 /**赠送的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
@@ -553,9 +572,9 @@ declare namespace TransactionMaker {
             totalGrabableTimes?: number;
             /**接收规则, 只能为 0，1 或 2，0 表示平均分配，1 表示根据任意账户的地址的随机分配，2 表示根据接收者列表中账户地址的随机分配 */
             giftDistributionRule?: GIFT_DISTRIBUTION_RULE;
-            /**从权益赠送事件发起到开始被签收的区块间隔，0-9 组成并且不包含小数点，可选，必须小于等于事件的有效期 */
+            /**从资产赠送事件发起到开始被签收的区块间隔，0-9 组成并且不包含小数点，可选，必须小于等于事件的有效期 */
             numberOfBeginUnfrozenBlocks?: number;
-            /**加密密钥组，如果填写了密钥，则接收权益交换的事件必须携带某个密钥生成的签名对 */
+            /**加密密钥组，如果填写了密钥，则接受资产赠送的事件必须携带某个密钥生成的签名对 */
             ciphertexts?: string[];
             /**纳税信息 */
             taxInformation?: TaxInformationJson;
@@ -565,19 +584,21 @@ declare namespace TransactionMaker {
             blockSignature: string;
             /**赠送事件的签名，128 个字节的 16 进制字符串 */
             transactionSignature: string;
-            /**权益赠送信息 */
+            /**抢到的数量 */
+            amount?: string;
+            /**赠送信息 */
             giftAny: {
                 /**加密密钥生成的公钥数组 */
                 cipherPublicKeys: string[];
-                /**赠送的权益所属链名，小写字母组成，5-10 位 */
-                sourceChainName: string;
-                /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
-                sourceChainMagic: string;
+                /**赠送的资产所属链名，小写字母组成，5-10 位 */
+                sourceChainName?: string;
+                /**赠送的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                sourceChainMagic?: string;
                 /**转移的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 */
                 parentAssetType: PARENT_ASSET_TYPE;
-                /**赠送的权益名称，大写字母组成，3-8 个字符 */
+                /**赠送的资产名称，大写字母组成，3-8 个字符 */
                 assetType: string;
-                /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于0 */
+                /**赠送的资产数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
                 /**可被接收的次数，0-9 组成并且不包含小数点，必须大于 0 */
                 totalGrabableTimes: number;
@@ -588,11 +609,12 @@ declare namespace TransactionMaker {
                 /**版税信息 */
                 taxInformation?: TaxInformationJson;
             };
-            /**加密密钥，如果权益赠送事件填写了加密密钥，则必须携带某个权益交换事件指定密钥以生成密钥签名对 */
+            /**加密密钥，如果资产赠送事件填写了加密密钥，则必须携带某个资产交换事件指定密钥以生成密钥签名对 */
             ciphertext?: string;
         }
 
         interface IssueEntityMultiTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**非同质资产信息 */
             entityInfo: {
                 /**要发行的非同质资产列表 */
                 entityStructList: {
@@ -622,6 +644,7 @@ declare namespace TransactionMaker {
         }
 
         interface ToExchangeAnyMultiTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**用于交换的资产信息 */
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
@@ -638,6 +661,7 @@ declare namespace TransactionMaker {
                 /**纳税信息 */
                 taxInformation?: TaxInformationJson;
             }[];
+            /**被交换的资产信息 */
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
@@ -657,6 +681,7 @@ declare namespace TransactionMaker {
         interface BeExchangeAnyMultiTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**资产交换事件的签名，128 个字节的 16 进制字符串 */
             transactionSignature: string;
+            /**用于交换的资产信息 */
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
@@ -673,6 +698,7 @@ declare namespace TransactionMaker {
                 /**纳税信息 */
                 taxInformation?: TaxInformationJson;
             }[];
+            /**被交换的资产信息 */
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
