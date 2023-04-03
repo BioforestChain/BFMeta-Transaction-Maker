@@ -745,6 +745,8 @@ declare namespace TransactionMaker {
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum: string;
+                /**纳税信息 */
+                taxInformation?: TaxInformationJson;
             }[];
 
             /**加密密钥组，如果填写了密钥，则接收资产交换的事件必须携带某个密钥生成的签名对 */
