@@ -34,6 +34,8 @@ import {
     IssueEntityMultiApi,
     ToExchangeAnyMultiApi,
     BeExchangeAnyMultiApi,
+    ToExchangeAnyMultiAllApi,
+    BeExchangeAnyMultiAllApi,
     RegisterChainApi,
     EmigrateAssetApi,
     ImmigrateAssetApi,
@@ -86,6 +88,8 @@ export class TransactionApi {
         const issueEntityMultiApi = new IssueEntityMultiApi(networkHelper);
         const toExchangeAnyMultiApi = new ToExchangeAnyMultiApi(networkHelper);
         const beExchangeAnyMultiApi = new BeExchangeAnyMultiApi(networkHelper);
+        const toExchangeAnyMultiAllApi = new ToExchangeAnyMultiAllApi(networkHelper);
+        const beExchangeAnyMultiAllApi = new BeExchangeAnyMultiAllApi(networkHelper);
         const registerChainApi = new RegisterChainApi(networkHelper);
         const emigrateAssetApi = new EmigrateAssetApi(networkHelper);
         const immigrateAssetApi = new ImmigrateAssetApi(networkHelper);
@@ -125,6 +129,8 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(issueEntityMultiApi.GENERATE_API_PATH, issueEntityMultiApi);
         TRANSACTION_API_MAP.set(toExchangeAnyMultiApi.GENERATE_API_PATH, toExchangeAnyMultiApi);
         TRANSACTION_API_MAP.set(beExchangeAnyMultiApi.GENERATE_API_PATH, beExchangeAnyMultiApi);
+        TRANSACTION_API_MAP.set(toExchangeAnyMultiAllApi.GENERATE_API_PATH, toExchangeAnyMultiAllApi);
+        TRANSACTION_API_MAP.set(beExchangeAnyMultiAllApi.GENERATE_API_PATH, beExchangeAnyMultiAllApi);
         TRANSACTION_API_MAP.set(registerChainApi.GENERATE_API_PATH, registerChainApi);
         TRANSACTION_API_MAP.set(emigrateAssetApi.GENERATE_API_PATH, emigrateAssetApi);
         TRANSACTION_API_MAP.set(immigrateAssetApi.GENERATE_API_PATH, immigrateAssetApi);
@@ -577,6 +583,32 @@ export class TransactionApi {
     /**发送批量发行非同质权益模板事件 */
     async sendIssueEntityMulti(argv: TransactionMaker.Transaction.IssueEntityMultiTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.IssueEntityMultiApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_ENTITY_MULTI);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建批量全量任意资产交换事件 */
+    async generateToExchangeAnyMultiAll(argv: TransactionMaker.Transaction.ToExchangeAnyMultiAllTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.ToExchangeAnyMultiAllApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_ANY_MULTI_ALL);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送批量全量任意资产交换事件 */
+    async sendToExchangeAnyMultiAll(argv: TransactionMaker.Transaction.ToExchangeAnyMultiAllTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.ToExchangeAnyMultiAllApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_ANY_MULTI_ALL);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建接受批量任意资产交换事件 */
+    async generateBeExchangeAnyMultiAll(argv: TransactionMaker.Transaction.BeExchangeAnyMultiAllTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.BeExchangeAnyMultiAllApi>(GENERATE_TRANSACTION_API_PATH.TR_BE_EXCHANGE_ANY_MULTI_ALL);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送接受批量任意资产交换事件 */
+    async sendBeExchangeAnyMultiAll(argv: TransactionMaker.Transaction.BeExchangeAnyMultiAllTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.BeExchangeAnyMultiAllApi>(GENERATE_TRANSACTION_API_PATH.TR_BE_EXCHANGE_ANY_MULTI_ALL);
         const result = await api.sendTransaction(argv, ipInfo);
         return result;
     }

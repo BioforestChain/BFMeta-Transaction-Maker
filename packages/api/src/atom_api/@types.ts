@@ -43,6 +43,9 @@ declare namespace TransactionMaker {
         type ToExchangeAnyMultiApi = import("./atom_transaction").ToExchangeAnyMultiApi;
         type BeExchangeAnyMultiApi = import("./atom_transaction").BeExchangeAnyMultiApi;
 
+        type ToExchangeAnyMultiAllApi = import("./atom_transaction").ToExchangeAnyMultiAllApi;
+        type BeExchangeAnyMultiAllApi = import("./atom_transaction").BeExchangeAnyMultiAllApi;
+
         type RegisterChainApi = import("./atom_transaction").RegisterChainApi;
         type EmigrateAssetApi = import("./atom_transaction").EmigrateAssetApi;
         type ImmigrateAssetApi = import("./atom_transaction").ImmigrateAssetApi;

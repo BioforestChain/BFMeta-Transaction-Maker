@@ -717,6 +717,76 @@ declare namespace TransactionMaker {
             ciphertext?: string;
         }
 
+        interface ToExchangeAnyMultiAllTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**用于交换的资产信息 */
+            toExchangeInfos: {
+                /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                toExchangeSource?: string;
+                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                toExchangeChainName?: string;
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                toExchangeParentAssetType: PARENT_ASSET_TYPE;
+                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                toExchangeAssetType: string;
+                /**用于交换的资产数量，0-9 组成并且不包含小数点 */
+                toExchangeAssetPrealnum: string;
+                /**纳税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+            /**被交换的资产信息 */
+            beExchangeInfos: {
+                /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
+                beExchangeSource?: string;
+                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                beExchangeChainName?: string;
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                beExchangeParentAssetType: PARENT_ASSET_TYPE;
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                beExchangeAssetType: string;
+                /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
+                beExchangeAssetPrealnum: string;
+            }[];
+
+            /**加密密钥组，如果填写了密钥，则接收资产交换的事件必须携带某个密钥生成的签名对 */
+            ciphertexts?: string[];
+        }
+        interface BeExchangeAnyMultiAllTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**资产交换事件的签名，128 个字节的 16 进制字符串 */
+            transactionSignature: string;
+            /**用于交换的资产信息 */
+            toExchangeInfos: {
+                /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                toExchangeSource?: string;
+                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                toExchangeChainName?: string;
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                toExchangeParentAssetType: PARENT_ASSET_TYPE;
+                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                toExchangeAssetType: string;
+                /**用于交换的资产数量，0-9 组成并且不包含小数点 */
+                toExchangeAssetPrealnum: string;
+                /**纳税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+            /**被交换的资产信息 */
+            beExchangeInfos: {
+                /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
+                beExchangeSource?: string;
+                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                beExchangeChainName?: string;
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                beExchangeParentAssetType: PARENT_ASSET_TYPE;
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                beExchangeAssetType: string;
+                /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
+                beExchangeAssetPrealnum: string;
+                /**纳税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+            /**加密密钥，如果资产交换事件填写了加密密钥，则必须携带某个资产交换事件指定密钥以生成密钥签名对 */
+            ciphertext?: string;
+        }
+
         interface RegisterChainTransactionParams extends TransactionCommonParamsWithoutRecipientId {
             /**注册链凭证 */
             registerCertificate: TransactionMaker.RegisterChainCertificateJSON;
