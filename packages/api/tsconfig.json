@@ -21,6 +21,7 @@
         "src/atom_api/atom_common/index.ts",
         "src/atom_api/atom_common/maybeHeightApi.ts",
         "src/atom_api/atom_common/timeCorrectingApi.ts",
+        "src/atom_api/atom_common/transactionMakerInfoApi.ts",
         "src/atom_api/atom_common/verifyAddressApi.ts",
         "src/atom_api/atom_common/verifyPublicKeyApi.ts",
         "src/atom_api/atom_common/_commonApi.ts",

@@ -12,3 +12,4 @@ export * from "./generateBlobSeedApi";
 export * from "./timeCorrectingApi";
 export * from "./maybeHeightApi";
 export * from "./generateRegisterChainCertificateApi";
+export * from "./transactionMakerInfoApi";

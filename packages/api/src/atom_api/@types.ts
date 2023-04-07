@@ -74,5 +74,6 @@ declare namespace TransactionMaker {
         type TimeCorrectingApi = import("./atom_common").TimeCorrectingApi;
         type MaybeHeightApi = import("./atom_common").MaybeHeightApi;
         type GenerateRegisterChainCertificateApi = import("./atom_common").GenerateRegisterChainCertificateApi;
+        type TransactionMakerInfoApi = import("./atom_common").TransactionMakerInfoApi;
     }
 }

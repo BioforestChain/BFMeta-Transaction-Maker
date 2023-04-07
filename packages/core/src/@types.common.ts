@@ -168,5 +168,14 @@ declare namespace TransactionMaker {
                 }[];
             };
         }
+
+        interface TransactionMakerInfo {
+            /**服务的版本号 */
+            version: string;
+            /**核心版本号 */
+            coreVersion: string;
+            /**支持链 */
+            supportChain: string;
+        }
     }
 }

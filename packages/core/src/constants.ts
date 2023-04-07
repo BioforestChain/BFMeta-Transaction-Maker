@@ -255,6 +255,9 @@ export const enum COMMON_API_PATH {
     /**获取节点的可能最新区块高度 */
     MAYBE_HEIGHT_API_PATH = "/common/maybeHeight",
 
+    /**获取服务器基础信息 */
+    TRANSACTION_MAKER_INFO_API_PATH = "/common/transactionMakerInfo",
+
     /**生成注册链凭证 */
     GENERATE_REGISTER_CHAIN_CERTIFICATE_API_PATH = "/common/generateRegisterChainCertificate",
 }
