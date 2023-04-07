@@ -251,15 +251,15 @@ export const enum COMMON_API_PATH {
     /**创建 blob 种子*/
     GENERATE_BLOB_SEED = "/common/generateBlobSeed",
     /**服务器时间校正 */
-    TIME_CORRECTING_API_PATH = "/common/correcting",
+    TIME_CORRECTING = "/common/correcting",
     /**获取节点的可能最新区块高度 */
-    MAYBE_HEIGHT_API_PATH = "/common/maybeHeight",
-
-    /**获取服务器基础信息 */
-    TRANSACTION_MAKER_INFO_API_PATH = "/common/transactionMakerInfo",
+    MAYBE_HEIGHT = "/common/maybeHeight",
 
     /**生成注册链凭证 */
-    GENERATE_REGISTER_CHAIN_CERTIFICATE_API_PATH = "/common/generateRegisterChainCertificate",
+    GENERATE_REGISTER_CHAIN_CERTIFICATE = "/common/generateRegisterChainCertificate",
+
+    /**获取服务器基础信息 */
+    TRANSACTION_MAKER_INFO = "/common/transactionMakerInfo",
 }
 
 export const enum NEW_TRANSACTION_REFUSE_REASON {

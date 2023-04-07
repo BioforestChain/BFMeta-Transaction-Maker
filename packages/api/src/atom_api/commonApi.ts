@@ -147,14 +147,14 @@ export class CommonApi {
 
     /**时间校正 */
     async timeCorrecting(argv: TransactionMaker.Common.TimeCorrectingParams = {}, ip?: string) {
-        const api = this.__getCommonApi<TransactionMaker.Common.TimeCorrectingApi>(COMMON_API_PATH.TIME_CORRECTING_API_PATH);
+        const api = this.__getCommonApi<TransactionMaker.Common.TimeCorrectingApi>(COMMON_API_PATH.TIME_CORRECTING);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }
 
     /**获取节点可能的最新高度 */
     async maybeHeight(argv: TransactionMaker.Common.MaybeHeightParams = {}, ip?: string) {
-        const api = this.__getCommonApi<TransactionMaker.Common.MaybeHeightApi>(COMMON_API_PATH.MAYBE_HEIGHT_API_PATH);
+        const api = this.__getCommonApi<TransactionMaker.Common.MaybeHeightApi>(COMMON_API_PATH.MAYBE_HEIGHT);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }
@@ -162,7 +162,7 @@ export class CommonApi {
     /**生成注册链凭证 */
     async generateRegisterChainCertificate(argv: TransactionMaker.Common.GenerateRegisterChainCertificateParams, ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.GenerateRegisterChainCertificateApi>(
-            COMMON_API_PATH.GENERATE_REGISTER_CHAIN_CERTIFICATE_API_PATH
+            COMMON_API_PATH.GENERATE_REGISTER_CHAIN_CERTIFICATE
         );
         const result = await api.sendPostRequest(argv, ip);
         return result;
@@ -170,7 +170,7 @@ export class CommonApi {
 
     /**获取服务器的基础信息 */
     async transactionMakerInfo(argv: TransactionMaker.Common.CommonParams = {}, ip?: string) {
-        const api = this.__getCommonApi<TransactionMaker.Common.TransactionMakerInfoApi>(COMMON_API_PATH.TRANSACTION_MAKER_INFO_API_PATH);
+        const api = this.__getCommonApi<TransactionMaker.Common.TransactionMakerInfoApi>(COMMON_API_PATH.TRANSACTION_MAKER_INFO);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }
