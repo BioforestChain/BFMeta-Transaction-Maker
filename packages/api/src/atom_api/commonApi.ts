@@ -161,17 +161,15 @@ export class CommonApi {
 
     /**生成注册链凭证 */
     async generateRegisterChainCertificate(argv: TransactionMaker.Common.GenerateRegisterChainCertificateParams, ip?: string) {
-        const api = this.__getCommonApi<TransactionMaker.Common.GenerateRegisterChainCertificateApi>(
-            COMMON_API_PATH.GENERATE_REGISTER_CHAIN_CERTIFICATE
-        );
+        const api = this.__getCommonApi<TransactionMaker.Common.GenerateRegisterChainCertificateApi>(COMMON_API_PATH.GENERATE_REGISTER_CHAIN_CERTIFICATE);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }
 
     /**获取服务器的基础信息 */
-    async transactionMakerInfo(argv: TransactionMaker.Common.CommonParams = {}, ip?: string) {
+    async transactionMakerInfo(ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.TransactionMakerInfoApi>(COMMON_API_PATH.TRANSACTION_MAKER_INFO);
-        const result = await api.sendPostRequest(argv, ip);
+        const result = await api.sendGetRequest(ip);
         return result;
     }
     // #endregion
