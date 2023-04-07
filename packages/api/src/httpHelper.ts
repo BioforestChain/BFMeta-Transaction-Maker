@@ -35,7 +35,13 @@ export class HttpHelper {
     }
 
     sendGetRequest<T>(apiPath: string, argv?: { [key: string]: any }, ip?: string) {
-        const completeUrl = this.__getUrl(apiPath, ip) + (argv ? `?${JSON.stringify(argv)}` : "");
+        let completeUrl = this.__getUrl(apiPath, ip);
+        if (argv) {
+            completeUrl += "?";
+            for (const key in argv) {
+                completeUrl += `${key}=${argv[key]},`;
+            }
+        }
         return new Promise<T>((resolve, reject) => {
             const req = http.get(completeUrl, async (res) => {
                 const body = await parsePostRequestParameter(res);
