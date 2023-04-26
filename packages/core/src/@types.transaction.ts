@@ -235,6 +235,8 @@ declare namespace TransactionMaker {
             transactionSignature: string;
             /**交换得到的权益数量，权益数量由0-9共十个数字组成，权益数量不包含小数点且必须大于0 */
             toExchangeNumber: string;
+            /**用于交换的权益数量，0-9 组成并且不包含小数点 */
+            beExchangeNumber?: string;
             /**权益交换信息 */
             exchangeAsset: {
                 /**加密密钥生成的公钥数组 */
@@ -500,7 +502,7 @@ declare namespace TransactionMaker {
             /**用于交换的权益数量，权益数量由0-9共十个数字组成，权益数量不包含小数点 */
             toExchangeAssetPrealnum: string;
             /**交换得到的权益数量，权益数量由0-9共十个数字组成，权益数量不包含小数点 */
-            beExchangeAssetPrealnum: string;
+            beExchangeAssetPrealnum?: string;
             /**纳税信息 */
             taxInformation?: TaxInformationJson;
             /**资产交换信息 */
