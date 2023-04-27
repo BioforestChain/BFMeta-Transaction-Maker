@@ -171,7 +171,7 @@ export class TransactionApi {
     }
     /**发送设置安全密码事件 */
     async sendSignature(argv: TransactionMaker.Transaction.SignatureTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
-        const api = this.__getTransactionApi<TransactionMaker.Transaction.SignatureApi>(GENERATE_TRANSACTION_API_PATH.TR_USERNAME);
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.SignatureApi>(GENERATE_TRANSACTION_API_PATH.TR_SIGNATURE);
         const result = await api.sendTransaction(argv, ipInfo);
         return result;
     }
