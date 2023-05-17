@@ -161,7 +161,7 @@ export class TransactionApi {
     }
 
     /**生成签名事件 */
-    async recombineTransaction(argv: TransactionMaker.Transaction.BroadcastTransactionParams) {
+    async recombineTransaction(argv: TransactionMaker.Transaction.RecombineTransactionParams) {
         const result = await this.utilApi.recombineTransaction(argv);
         return result;
     }
