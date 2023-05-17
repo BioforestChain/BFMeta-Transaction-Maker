@@ -166,6 +166,12 @@ export class TransactionApi {
         return result;
     }
 
+    /**使用Macro生成事件 */
+    async macroBuildTransaction(argv: TransactionMaker.Transaction.MacroBuildTransactionParams) {
+        const result = await this.utilApi.macroBuildTransaction(argv);
+        return result;
+    }
+
     /**广播事件 */
     async broadcastTransaction(argv: TransactionMaker.Transaction.BroadcastTransactionParams) {
         const result = await this.utilApi.broadcastTransaction(argv);

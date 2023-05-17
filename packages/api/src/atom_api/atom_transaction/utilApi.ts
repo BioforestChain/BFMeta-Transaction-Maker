@@ -32,6 +32,24 @@ export class UtilApi {
         }
     }
 
+    readonly MACRO_BUILD_API_PATH = UTIL_API_PATH.MACRO_BUILD;
+    async macroBuildTransaction<T extends TransactionMaker.TransactionJSON>(argv: TransactionMaker.Transaction.MacroBuildTransactionParams) {
+        try {
+            const result = await this.networkHelper.sendPostRequest<TransactionMaker.Server.GenerateTransactionReturn<T>>(this.MACRO_BUILD_API_PATH, argv);
+            return result;
+        } catch (e: any) {
+            const errorInfo: TransactionMaker.Server.GenerateTransactionFailureReturn = {
+                success: false,
+                error: {
+                    code: "7001",
+                    message: `request api ${this.RECOMBINE_API_PATH} error`,
+                    description: e.message,
+                },
+            };
+            return errorInfo;
+        }
+    }
+
     readonly BROADCAST_API_PATH = UTIL_API_PATH.BROADCAST;
     /**
      * 广播交易

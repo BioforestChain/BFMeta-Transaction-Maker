@@ -851,5 +851,11 @@ declare namespace TransactionMaker {
             /**完整的事件 */
             transaction: T;
         };
+
+        type MacroBuildTransactionParams<T extends TransactionMaker.TransactionJSON = TransactionMaker.TransactionJSON> = {
+            template: T;
+            defineInputs: Macro.InputJSON[];
+            inputs: Record<string, string>;
+        };
     }
 }

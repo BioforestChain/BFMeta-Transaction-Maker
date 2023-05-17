@@ -126,6 +126,8 @@ export const enum UTIL_API_PATH {
     /**广播 */
     BROADCAST = "/util/broadcast",
     /**交易工具 */
+    MACRO_BUILD = "/util/macroBuild",
+    /**交易工具 */
     RECOMBINE = "/util/recombine",
 }
 
