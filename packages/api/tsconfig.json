@@ -70,6 +70,7 @@
         "src/atom_api/atom_transaction/transferAssetApi.ts",
         "src/atom_api/atom_transaction/trustAssetApi.ts",
         "src/atom_api/atom_transaction/usernameApi.ts",
+        "src/atom_api/atom_transaction/utilApi.ts",
         "src/atom_api/atom_transaction/voteApi.ts",
         "src/atom_api/atom_transaction/_transactionApi.ts",
         "src/atom_api/commonApi.ts",

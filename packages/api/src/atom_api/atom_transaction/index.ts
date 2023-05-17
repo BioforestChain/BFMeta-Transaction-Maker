@@ -52,3 +52,5 @@ export * from "./promiseApi";
 export * from "./promiseResolveApi";
 export * from "./macroApi";
 export * from "./macroCallApi";
+
+export * from "./utilApi";

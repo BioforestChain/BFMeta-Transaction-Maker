@@ -44,6 +44,7 @@ import {
     PromiseResolveApi,
     MacroApi,
     MacroCallApi,
+    UtilApi,
 } from "./atom_transaction";
 
 import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
@@ -54,55 +55,56 @@ export class TransactionApi {
     constructor(private __networkHelper: TransactionMaker.NetworkHelper) {
         this.__init();
     }
-
+    utilApi!: UtilApi;
     private __init() {
         const { __networkHelper: networkHelper, __TRANSACTION_API_MAP: TRANSACTION_API_MAP } = this;
 
-        const usernameApi = new UsernameApi(networkHelper);
-        const signatureApi = new SignatureApi(networkHelper);
-        const delegateApi = new DelegateApi(networkHelper);
-        const acceptVoteApi = new AcceptVoteApi(networkHelper);
-        const rejectVoteApi = new RejectVoteApi(networkHelper);
-        const voteApi = new VoteApi(networkHelper);
-        const issueAssetApi = new IssueAssetApi(networkHelper);
-        const transferAssetApi = new TransferAssetApi(networkHelper);
-        const destoryAssetApi = new DestoryAssetApi(networkHelper);
-        const giftAssetApi = new GiftAssetApi(networkHelper);
-        const grabAssetApi = new GrabAssetApi(networkHelper);
-        const trustAssetApi = new TrustAssetApi(networkHelper);
-        const signForAssetApi = new SignForAssetApi(networkHelper);
-        const toExchangeAssetApi = new ToExchangeAssetApi(networkHelper);
-        const beExchangeAssetApi = new BeExchangeAssetApi(networkHelper);
-        const dAppApi = new DAppApi(networkHelper);
-        const dAppPurchasingApi = new DAppPurchasingApi(networkHelper);
-        const markApi = new MarkApi(networkHelper);
-        const locationNameApi = new LocationNameApi(networkHelper);
-        const setLnsManagerApi = new SetLnsManagerApi(networkHelper);
-        const setLnsRecordValueApi = new SetLnsRecordValueApi(networkHelper);
-        const toExchangeSpecialAssetApi = new ToExchangeSpecialAssetApi(networkHelper);
-        const beExchangeSpecialAssetApi = new BeExchangeSpecialAssetApi(networkHelper);
-        const issueEntityFactoryApi = new IssueEntityFactoryApi(networkHelper);
-        const issueEntityFactoryV1Api = new IssueEntityFactoryV1Api(networkHelper);
-        const issueEntityApi = new IssueEntityApi(networkHelper);
-        const destoryEntityApi = new DestoryEntityApi(networkHelper);
-        const transferAnyApi = new TransferAnyApi(networkHelper);
-        const giftAnyApi = new GiftAnyApi(networkHelper);
-        const grabAnyApi = new GrabAnyApi(networkHelper);
-        const toExchangeAnyApi = new ToExchangeAnyApi(networkHelper);
-        const beExchangeAnyApi = new BeExchangeAnyApi(networkHelper);
-        const issueEntityMultiApi = new IssueEntityMultiApi(networkHelper);
-        const toExchangeAnyMultiApi = new ToExchangeAnyMultiApi(networkHelper);
-        const beExchangeAnyMultiApi = new BeExchangeAnyMultiApi(networkHelper);
-        const toExchangeAnyMultiAllApi = new ToExchangeAnyMultiAllApi(networkHelper);
-        const beExchangeAnyMultiAllApi = new BeExchangeAnyMultiAllApi(networkHelper);
-        const registerChainApi = new RegisterChainApi(networkHelper);
-        const emigrateAssetApi = new EmigrateAssetApi(networkHelper);
-        const immigrateAssetApi = new ImmigrateAssetApi(networkHelper);
-        const multipleApi = new MultipleApi(networkHelper);
-        const promiseApi = new PromiseApi(networkHelper);
-        const promiseResolveApi = new PromiseResolveApi(networkHelper);
-        const macroApi = new MacroApi(networkHelper);
-        const macroCallApi = new MacroCallApi(networkHelper);
+        const utilApi = (this.utilApi = new UtilApi(networkHelper));
+        const usernameApi = new UsernameApi(networkHelper, utilApi);
+        const signatureApi = new SignatureApi(networkHelper, utilApi);
+        const delegateApi = new DelegateApi(networkHelper, utilApi);
+        const acceptVoteApi = new AcceptVoteApi(networkHelper, utilApi);
+        const rejectVoteApi = new RejectVoteApi(networkHelper, utilApi);
+        const voteApi = new VoteApi(networkHelper, utilApi);
+        const issueAssetApi = new IssueAssetApi(networkHelper, utilApi);
+        const transferAssetApi = new TransferAssetApi(networkHelper, utilApi);
+        const destoryAssetApi = new DestoryAssetApi(networkHelper, utilApi);
+        const giftAssetApi = new GiftAssetApi(networkHelper, utilApi);
+        const grabAssetApi = new GrabAssetApi(networkHelper, utilApi);
+        const trustAssetApi = new TrustAssetApi(networkHelper, utilApi);
+        const signForAssetApi = new SignForAssetApi(networkHelper, utilApi);
+        const toExchangeAssetApi = new ToExchangeAssetApi(networkHelper, utilApi);
+        const beExchangeAssetApi = new BeExchangeAssetApi(networkHelper, utilApi);
+        const dAppApi = new DAppApi(networkHelper, utilApi);
+        const dAppPurchasingApi = new DAppPurchasingApi(networkHelper, utilApi);
+        const markApi = new MarkApi(networkHelper, utilApi);
+        const locationNameApi = new LocationNameApi(networkHelper, utilApi);
+        const setLnsManagerApi = new SetLnsManagerApi(networkHelper, utilApi);
+        const setLnsRecordValueApi = new SetLnsRecordValueApi(networkHelper, utilApi);
+        const toExchangeSpecialAssetApi = new ToExchangeSpecialAssetApi(networkHelper, utilApi);
+        const beExchangeSpecialAssetApi = new BeExchangeSpecialAssetApi(networkHelper, utilApi);
+        const issueEntityFactoryApi = new IssueEntityFactoryApi(networkHelper, utilApi);
+        const issueEntityFactoryV1Api = new IssueEntityFactoryV1Api(networkHelper, utilApi);
+        const issueEntityApi = new IssueEntityApi(networkHelper, utilApi);
+        const destoryEntityApi = new DestoryEntityApi(networkHelper, utilApi);
+        const transferAnyApi = new TransferAnyApi(networkHelper, utilApi);
+        const giftAnyApi = new GiftAnyApi(networkHelper, utilApi);
+        const grabAnyApi = new GrabAnyApi(networkHelper, utilApi);
+        const toExchangeAnyApi = new ToExchangeAnyApi(networkHelper, utilApi);
+        const beExchangeAnyApi = new BeExchangeAnyApi(networkHelper, utilApi);
+        const issueEntityMultiApi = new IssueEntityMultiApi(networkHelper, utilApi);
+        const toExchangeAnyMultiApi = new ToExchangeAnyMultiApi(networkHelper, utilApi);
+        const beExchangeAnyMultiApi = new BeExchangeAnyMultiApi(networkHelper, utilApi);
+        const toExchangeAnyMultiAllApi = new ToExchangeAnyMultiAllApi(networkHelper, utilApi);
+        const beExchangeAnyMultiAllApi = new BeExchangeAnyMultiAllApi(networkHelper, utilApi);
+        const registerChainApi = new RegisterChainApi(networkHelper, utilApi);
+        const emigrateAssetApi = new EmigrateAssetApi(networkHelper, utilApi);
+        const immigrateAssetApi = new ImmigrateAssetApi(networkHelper, utilApi);
+        const multipleApi = new MultipleApi(networkHelper, utilApi);
+        const promiseApi = new PromiseApi(networkHelper, utilApi);
+        const promiseResolveApi = new PromiseResolveApi(networkHelper, utilApi);
+        const macroApi = new MacroApi(networkHelper, utilApi);
+        const macroCallApi = new MacroCallApi(networkHelper, utilApi);
 
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
         TRANSACTION_API_MAP.set(signatureApi.GENERATE_API_PATH, signatureApi);
@@ -158,10 +160,15 @@ export class TransactionApi {
         return this.__TRANSACTION_API_MAP.get(apiPath) as T;
     }
 
+    /**生成签名事件 */
+    async recombineTransaction(argv: TransactionMaker.Transaction.BroadcastTransactionParams) {
+        const result = await this.utilApi.recombineTransaction(argv);
+        return result;
+    }
+
     /**广播事件 */
     async broadcastTransaction(argv: TransactionMaker.Transaction.BroadcastTransactionParams) {
-        const api = this.__getTransactionApi<TransactionMaker.Transaction.TransferAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_TRANSFER_ASSET);
-        const result = await api.broadcastTransaction(argv);
+        const result = await this.utilApi.broadcastTransaction(argv);
         return result;
     }
 

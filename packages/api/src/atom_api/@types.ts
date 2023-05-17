@@ -1,6 +1,6 @@
 declare namespace TransactionMaker {
     namespace Transaction {
-        type TransactionApi = import("./atom_transaction/_transactionApi").TransactionApi<any>;
+        type TransactionApi = import("./atom_transaction/_transactionApi")._TransactionApi<any>;
         type UsernameApi = import("./atom_transaction").UsernameApi;
         type SignatureApi = import("./atom_transaction").SignatureApi;
         type DelegateApi = import("./atom_transaction").DelegateApi;
@@ -55,6 +55,8 @@ declare namespace TransactionMaker {
         type PromiseResolveApi = import("./atom_transaction").PromiseResolveApi;
         type MacroApi = import("./atom_transaction").MacroApi;
         type MacroCallApi = import("./atom_transaction").MacroCallApi;
+
+        type UtilApi = import("./atom_transaction").UtilApi;
     }
 
     namespace CrossChain {

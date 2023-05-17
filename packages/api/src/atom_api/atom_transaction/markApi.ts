@@ -1,7 +1,7 @@
-import { TransactionApi } from "./_transactionApi";
+import { _TransactionApi } from "./_transactionApi";
 import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
 
-export class MarkApi extends TransactionApi<TransactionMaker.TransactionJSON> {
+export class MarkApi extends _TransactionApi<TransactionMaker.TransactionJSON> {
     readonly GENERATE_API_PATH = GENERATE_TRANSACTION_API_PATH.TR_MARK;
 
     async generateTransaction(argv: TransactionMaker.Transaction.MarkTransactionParams, ip?: string) {

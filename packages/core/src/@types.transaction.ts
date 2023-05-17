@@ -842,5 +842,14 @@ declare namespace TransactionMaker {
             /**接收事件的节点 ip */
             ip?: string;
         };
+
+        type RecombineTransactionParams<T extends TransactionMaker.TransactionJSON = TransactionMaker.TransactionJSON> = {
+            /** 主密钥 */
+            secret?: string;
+            /** 二次密钥，首先需要确保 secret 有传入才会生效 */
+            secondSecretInfo?: SecondSecretInfo;
+            /**完整的事件 */
+            transaction: T;
+        };
     }
 }

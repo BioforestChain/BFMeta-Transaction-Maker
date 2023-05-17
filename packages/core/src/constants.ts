@@ -122,7 +122,12 @@ export const enum LOGGER_LEVEL {
 }
 
 /**广播事件 */
-export const BROADCAST_TRANSACTION_API_PATH = "/broadcast";
+export const enum UTIL_API_PATH {
+    /**广播 */
+    BROADCAST = "/util/broadcast",
+    /**交易工具 */
+    RECOMBINE = "/util/recombine",
+}
 
 export const enum GENERATE_TRANSACTION_API_PATH {
     /**创建设置用户名事件 */
