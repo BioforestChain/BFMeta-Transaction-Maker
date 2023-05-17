@@ -26,9 +26,9 @@ export const enum SECRET_LANGUAGE_TYPE {
 export const MAX_ONE_FILE_SIZE = 200 * 1024 * 1024; //200M
 
 export const enum EXCHANGE_DIRECTION {
-    /**特殊资产来自 to 交易的发起账户，即出售 */
+    /**特殊资产来自 to 事件的发起账户，即出售 */
     ASSET_FROM_SENDER = 0,
-    /**特殊资产来自 be 交易的发起账户，即求购 */
+    /**特殊资产来自 be 事件的发起账户，即求购 */
     ASSET_FROM_RECIPIENT = 1,
 }
 
@@ -121,57 +121,57 @@ export const enum LOGGER_LEVEL {
     ERROR = "error",
 }
 
-/**广播交易 */
+/**广播事件 */
 export const BROADCAST_TRANSACTION_API_PATH = "/broadcast";
 
 export const enum GENERATE_TRANSACTION_API_PATH {
-    /**创建设置用户名交易 */
+    /**创建设置用户名事件 */
     TR_USERNAME = "/generate/username",
-    /**创建设置安全密码交易 */
+    /**创建设置安全密码事件 */
     TR_SIGNATURE = "/generate/signature",
-    /**创建注册受托人交易 */
+    /**创建注册受托人事件 */
     TR_DELEGATE = "/generate/delegate",
-    /**创建开启收票交易 */
+    /**创建开启收票事件 */
     TR_ACCEPT_VOTE = "/generate/acceptVote",
-    /**创建关闭收票交易 */
+    /**创建关闭收票事件 */
     TR_REJECT_VOTE = "/generate/rejectVote",
-    /**创建治理投票交易 */
+    /**创建治理投票事件 */
     TR_VOTE = "/generate/vote",
 
-    /**创建权益发行交易 */
+    /**创建权益发行事件 */
     TR_ISSUE_ASSET = "/generate/issueAsset",
-    /**创建权益转移交易 */
+    /**创建权益转移事件 */
     TR_TRANSFER_ASSET = "/generate/transferAsset",
-    /**创建权益销毁交易 */
+    /**创建权益销毁事件 */
     TR_DESTORY_ASSET = "/generate/destoryAsset",
-    /**创建权益赠送交易 */
+    /**创建权益赠送事件 */
     TR_GIFT_ASSET = "/generate/giftAsset",
-    /**创建接受权益赠送交易 */
+    /**创建接受权益赠送事件 */
     TR_GRAB_ASSET = "/generate/grabAsset",
-    /**创建权益委托交易 */
+    /**创建权益委托事件 */
     TR_TRUST_ASSET = "/generate/trustAsset",
-    /**创建接受权益委托交易 */
+    /**创建接受权益委托事件 */
     TR_SIGN_FOR_ASSET = "/generate/signForAsset",
-    /**创建权益交换交易 */
+    /**创建权益交换事件 */
     TR_TO_EXCHANGE_ASSET = "/generate/toExchangeAsset",
-    /**创建接受权益交换交易 */
+    /**创建接受权益交换事件 */
     TR_BE_EXCHANGE_ASSET = "/generate/beExchangeAsset",
 
-    /**创建注册 dappid 交易 */
+    /**创建注册 dappid 事件 */
     TR_DAPP = "/generate/dapp",
-    /**创建 dappid 购买 交易 */
+    /**创建 dappid 购买 事件 */
     TR_DAPP_PURCHASING = "/generate/dappPurchasing",
-    /**创建数据存证交易 */
+    /**创建数据存证事件 */
     TR_MARK = "/generate/mark",
-    /**创建注册/注销链域名交易 */
+    /**创建注册/注销链域名事件 */
     TR_LOCATION_NAME = "/generate/locationName",
-    /**创建设置链域名管理员交易 */
+    /**创建设置链域名管理员事件 */
     TR_SET_LNS_MANAGER = "/generate/setLnsManager",
-    /**创建设置链域名解析值交易 */
+    /**创建设置链域名解析值事件 */
     TR_SET_LNS_RECORD_VALUE = "/generate/setLnsRecordValue",
-    /**创建资产交换交易 */
+    /**创建资产交换事件 */
     TR_TO_EXCHANGE_SPECIAL_ASSET = "/generate/toExchangeSpecAsset",
-    /**创建接受资产交换交易 */
+    /**创建接受资产交换事件 */
     TR_BE_EXCHANGE_SPECIAL_ASSET = "/generate/beExchangeSpecAsset",
 
     /**创建非同质权益模板 - V0 冻结发行 */
@@ -183,37 +183,48 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     /**销毁非同质权益 */
     TR_DESTORY_ENTITY = "/generate/destoryEntity",
 
-    /**创建任意资产转移交易 */
+    /**创建任意资产转移事件 */
     TR_TRANSFER_ANY = "/generate/transferAny",
-    /**创建任意资产赠送交易 */
+    /**创建任意资产赠送事件 */
     TR_GIFT_ANY = "/generate/giftAny",
-    /**创建接受任意资产赠送交易 */
+    /**创建接受任意资产赠送事件 */
     TR_GRAB_ANY = "/generate/grabAny",
 
-    /**创建任意资产交换交易 */
+    /**创建任意资产交换事件 */
     TR_TO_EXCHANGE_ANY = "/generate/toExchangeAny",
-    /**创建接受任意资产交换交易 */
+    /**创建接受任意资产交换事件 */
     TR_BE_EXCHANGE_ANY = "/generate/beExchangeAny",
 
     /**批量创建非同质权益 */
     TR_ISSUE_ENTITY_MULTI = "/generate/issueEntityMulti",
 
-    /**创建批量任意资产交换交易 */
+    /**创建批量任意资产交换事件 */
     TR_TO_EXCHANGE_ANY_MULTI = "/generate/toExchangeAnyMulti",
-    /**创建接受批量任意资产交换交易 */
+    /**创建接受批量任意资产交换事件 */
     TR_BE_EXCHANGE_ANY_MULTI = "/generate/beExchangeAnyMulti",
 
-    /**创建批量全量任意资产交换交易 */
+    /**创建批量全量任意资产交换事件 */
     TR_TO_EXCHANGE_ANY_MULTI_ALL = "/generate/toExchangeAnyMultiAll",
-    /**创建接受批量全量任意资产交换交易 */
+    /**创建接受批量全量任意资产交换事件 */
     TR_BE_EXCHANGE_ANY_MULTI_ALL = "/generate/beExchangeAnyMultiAll",
 
-    /**创建注册链交易 */
+    /**创建注册链事件 */
     TR_REGISTER_CHAIN = "/generate/registerChain",
-    /**创建权益迁出交易 */
+    /**创建权益迁出事件 */
     TR_EMIGRATE_ASSET = "/generate/emigrateAsset",
-    /**创建权益迁入交易 */
+    /**创建权益迁入事件 */
     TR_IMMIGRATE_ASSET = "/generate/immigrateAsset",
+
+    /**创建组合事件 */
+    TR_MULTIPLE = "/generate/multiple",
+    /**创建承诺事件 */
+    TR_PROMISE = "/generate/promise",
+    /**创建承诺兑现事件 */
+    TR_PROMISE_RESOLVE = "/generate/promiseResolve",
+    /**创建宏事件 */
+    TR_MACRO = "/generate/macro",
+    /**创建宏调用事件 */
+    TR_MACRO_CALL = "/generate/macroCall",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {
@@ -265,29 +276,29 @@ export const enum COMMON_API_PATH {
 export const enum NEW_TRANSACTION_REFUSE_REASON {
     /**手续费低于网络手续费 */
     FEE_LESS_THAN_WEB_FEE = 0,
-    /**交易过期 */
+    /**事件过期 */
     TRS_EXPRIED = 1,
-    /**交易已经在未处理交易进程 */
+    /**事件已经在未处理事件进程 */
     TRANSACTION_IN_UNTREATEDTR = 2,
-    /**交易已经在交易表中 */
+    /**事件已经在事件表中 */
     TRANSACTION_IN_TRS = 3,
-    /**交易基础类型未找到 */
+    /**事件基础类型未找到 */
     TRANSACTION_BASE_TYPE_NOT_FOUND = 4,
-    /**交易类型未找到 */
+    /**事件类型未找到 */
     TRANSACTION_BASE_NOT_FOUND = 5,
     /**链资产不足 */
     CHAIN_ASSET_NOT_ENOUGH = 6,
     /**资产不足 */
     ASSET_NOT_ENOUGH = 7,
-    /**交易的发起账户资产冻结 */
+    /**事件的发起账户资产冻结 */
     TRANSACTION_SENDER_ASSET_FROZEN = 8,
-    /**交易的接收账户资产冻结 */
+    /**事件的接收账户资产冻结 */
     TRANSACTION_RECIPIENT_ASSET_FROZEN = 9,
-    /**交易的手续费不足 */
+    /**事件的手续费不足 */
     TRANSACTION_FEE_NOT_ENOUGH = 10,
     /**必须给 dapp 的开发者投票 */
     MUSET_VOTE_FOR_DAPP_POSSESSOR = 11,
-    /**交易资产负债 */
+    /**事件资产负债 */
     TRANSACTION_ASSET_DEBT = 12,
     /**位名不存在 */
     LOCATION_NAME_NOT_EXIST = 13,
@@ -319,7 +330,7 @@ export const enum NEW_TRANSACTION_REFUSE_REASON {
     USERNAME_ALREADY_EXIST = 26,
     /**账户已经给受托人投票 */
     ACCOUNT_ALREADY_VOTED_FOR_DELEGATE = 27,
-    /**交易来自未来 */
+    /**事件来自未来 */
     TRS_IN_FEATURE = 28,
     /**事件的 tpow 校验失败 */
     TRANSACTION_POW_CHECK_FIELD = 29,
@@ -357,4 +368,19 @@ export const enum NEW_TRANSACTION_REFUSE_REASON {
     ASSET_NOT_EXIST = 45,
     /**dappid 不存在 */
     DAPPID_NOT_EXIST = 46,
+}
+
+export const enum MACRO_INPUT_TYPE {
+    TEXT = "text",
+    ADDRESS = "address",
+    SIGNATURE = "signature",
+    NUMBER = "number",
+    CALC = "calc",
+}
+
+export const enum MACRO_NUMBER_FORMAT {
+    /**字符串 */
+    STRING = "string",
+    /**数字字面量 */
+    LITERAL = "literal",
 }

@@ -49,6 +49,12 @@ declare namespace TransactionMaker {
         type RegisterChainApi = import("./atom_transaction").RegisterChainApi;
         type EmigrateAssetApi = import("./atom_transaction").EmigrateAssetApi;
         type ImmigrateAssetApi = import("./atom_transaction").ImmigrateAssetApi;
+
+        type MultipleApi = import("./atom_transaction").MultipleApi;
+        type PromiseApi = import("./atom_transaction").PromiseApi;
+        type PromiseResolveApi = import("./atom_transaction").PromiseResolveApi;
+        type MacroApi = import("./atom_transaction").MacroApi;
+        type MacroCallApi = import("./atom_transaction").MacroCallApi;
     }
 
     namespace CrossChain {

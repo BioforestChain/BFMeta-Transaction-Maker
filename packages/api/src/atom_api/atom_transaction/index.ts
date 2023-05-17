@@ -43,7 +43,12 @@ export * from "./beExchangeAnyMultiApi";
 export * from "./toExchangeAnyMultiAllApi";
 export * from "./beExchangeAnyMultiAllApi";
 
-
 export * from "./registerChainApi";
 export * from "./emigrateAssetApi";
 export * from "./immigrateAssetApi";
+
+export * from "./multipleApi";
+export * from "./promiseApi";
+export * from "./promiseResolveApi";
+export * from "./macroApi";
+export * from "./macroCallApi";

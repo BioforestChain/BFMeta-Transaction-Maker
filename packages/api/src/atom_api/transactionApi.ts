@@ -39,6 +39,11 @@ import {
     RegisterChainApi,
     EmigrateAssetApi,
     ImmigrateAssetApi,
+    MultipleApi,
+    PromiseApi,
+    PromiseResolveApi,
+    MacroApi,
+    MacroCallApi,
 } from "./atom_transaction";
 
 import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
@@ -93,6 +98,11 @@ export class TransactionApi {
         const registerChainApi = new RegisterChainApi(networkHelper);
         const emigrateAssetApi = new EmigrateAssetApi(networkHelper);
         const immigrateAssetApi = new ImmigrateAssetApi(networkHelper);
+        const multipleApi = new MultipleApi(networkHelper);
+        const promiseApi = new PromiseApi(networkHelper);
+        const promiseResolveApi = new PromiseResolveApi(networkHelper);
+        const macroApi = new MacroApi(networkHelper);
+        const macroCallApi = new MacroCallApi(networkHelper);
 
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
         TRANSACTION_API_MAP.set(signatureApi.GENERATE_API_PATH, signatureApi);
@@ -134,6 +144,11 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(registerChainApi.GENERATE_API_PATH, registerChainApi);
         TRANSACTION_API_MAP.set(emigrateAssetApi.GENERATE_API_PATH, emigrateAssetApi);
         TRANSACTION_API_MAP.set(immigrateAssetApi.GENERATE_API_PATH, immigrateAssetApi);
+        TRANSACTION_API_MAP.set(multipleApi.GENERATE_API_PATH, multipleApi);
+        TRANSACTION_API_MAP.set(promiseApi.GENERATE_API_PATH, promiseApi);
+        TRANSACTION_API_MAP.set(promiseResolveApi.GENERATE_API_PATH, promiseResolveApi);
+        TRANSACTION_API_MAP.set(macroApi.GENERATE_API_PATH, macroApi);
+        TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
 
         Object.freeze(TRANSACTION_API_MAP);
     }
@@ -143,7 +158,7 @@ export class TransactionApi {
         return this.__TRANSACTION_API_MAP.get(apiPath) as T;
     }
 
-    /**广播交易 */
+    /**广播事件 */
     async broadcastTransaction(argv: TransactionMaker.Transaction.BroadcastTransactionParams) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.TransferAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_TRANSFER_ASSET);
         const result = await api.broadcastTransaction(argv);
@@ -674,6 +689,71 @@ export class TransactionApi {
     /**发送权益迁入事件 */
     async sendImmigrateAsset(argv: TransactionMaker.Transaction.ImmigrateAssetTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.ImmigrateAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_IMMIGRATE_ASSET);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建组合事件 */
+    async generateMultiple(argv: TransactionMaker.Transaction.MultipleTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送组合事件 */
+    async sendMultiple(argv: TransactionMaker.Transaction.MultipleTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建承诺事件 */
+    async generatePromise(argv: TransactionMaker.Transaction.PromiseTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.PromiseApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送承诺事件 */
+    async sendPromise(argv: TransactionMaker.Transaction.PromiseTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.PromiseApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建承诺兑现事件 */
+    async generatePromiseResolve(argv: TransactionMaker.Transaction.PromiseResolveTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.PromiseResolveApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE_RESOLVE);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送承诺兑现事件 */
+    async sendPromiseResolve(argv: TransactionMaker.Transaction.PromiseResolveTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.PromiseResolveApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE_RESOLVE);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建宏事件 */
+    async generateMacro(argv: TransactionMaker.Transaction.MacroTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MacroApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送宏事件 */
+    async sendMacro(argv: TransactionMaker.Transaction.MacroTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MacroApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建宏调用事件 */
+    async generateMacroCall(argv: TransactionMaker.Transaction.MacroCallTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送宏调用事件 */
+    async sendMacroCall(argv: TransactionMaker.Transaction.MacroCallTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
         const result = await api.sendTransaction(argv, ipInfo);
         return result;
     }

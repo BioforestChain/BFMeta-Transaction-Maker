@@ -13,6 +13,8 @@ declare namespace TransactionMaker {
     type NEW_TRANSACTION_REFUSE_REASON = import("./constants").NEW_TRANSACTION_REFUSE_REASON;
     type BNID_TYPE = import("./constants").BNID_TYPE;
     type LOGGER_LEVEL = import("./constants").LOGGER_LEVEL;
+    type MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE;
+    type MACRO_NUMBER_FORMAT = import("./constants").MACRO_NUMBER_FORMAT;
 
     interface TransactionStorageJSON {
         /**事件的索引键，提供额外查询使用的字段名 */
@@ -163,6 +165,37 @@ declare namespace TransactionMaker {
         signature: string;
         /**链创世账户安全公钥生成的签名 */
         signSignature?: string;
+    }
+
+    interface FractionJSON<T extends number | bigint | string = number> {
+        /**分子 */
+        numerator: T;
+        /**分母 */
+        denominator: T;
+    }
+
+    namespace Macro {
+        interface BaseInputJSON<T extends MACRO_INPUT_TYPE> {
+            type: T;
+            name: string;
+            keyPath: string;
+            /**regexp */
+            pattern?: string;
+        }
+        interface TextInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.TEXT> extends BaseInputJSON<T> {}
+        interface AddressInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.ADDRESS> extends TextInputJSON<T> {}
+        interface SignatureInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.SIGNATURE> extends TextInputJSON<T> {}
+        interface NumberInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.NUMBER> extends BaseInputJSON<T> {
+            min?: FractionJSON<string>;
+            max?: FractionJSON<string>;
+            step?: FractionJSON<string>;
+            format?: MACRO_NUMBER_FORMAT;
+        }
+        interface CalcInputJSON extends NumberInputJSON<import("./constants").MACRO_INPUT_TYPE.CALC> {
+            calc: string;
+        }
+
+        type InputJSON = TextInputJSON | AddressInputJSON | SignatureInputJSON | NumberInputJSON | CalcInputJSON;
     }
 
     type IpInfo = {

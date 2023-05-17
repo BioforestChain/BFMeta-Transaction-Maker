@@ -84,13 +84,6 @@ declare namespace TransactionMaker {
             };
         }
 
-        interface FractionJSON<T extends number | bigint | string = number> {
-            /**分子 */
-            numerator: T;
-            /**分母 */
-            denominator: T;
-        }
-
         interface CalcTransactionMinFeeParams extends CommonParams {
             /**完整的事件 */
             transaction: TransactionJSON;
@@ -105,16 +98,16 @@ declare namespace TransactionMaker {
         interface GenerateCiphertextSignatureParams extends CommonParams {
             /**加密密钥 */
             secret: string;
-            /**关联交易的签名 */
+            /**关联事件的签名 */
             transactionSignature: string;
-            /**交易的发起账户地址 */
+            /**事件的发起账户地址 */
             senderId: string;
         }
 
         interface GenerateBlobSeedParams extends CommonParams {
             /**加密密钥 */
             hash: string;
-            /**关联交易的签名 */
+            /**关联事件的签名 */
             size: number;
         }
 

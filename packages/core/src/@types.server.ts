@@ -29,7 +29,7 @@ declare namespace TransactionMaker {
             loggerConfig: LoggerConfig;
             /**可用的链节点列表 */
             chainNodeIps: string[];
-            /**广播交易超时时间 */
+            /**广播事件超时时间 */
             broadcastTimeout: number;
             /**创世块配置信息 */
             genesisInfoConfig: GenesisInfoConfig;
@@ -44,7 +44,7 @@ declare namespace TransactionMaker {
             loggerConfig?: LoggerConfigOptions;
             /**可用的链节点列表 */
             chainNodeIps?: string[];
-            /**广播交易超时时间 */
+            /**广播事件超时时间 */
             broadcastTimeout?: number;
             /**创世块配置信息 */
             genesisInfoConfig?: GenesisInfoConfigOptions;
@@ -81,11 +81,11 @@ declare namespace TransactionMaker {
         type CommonReturn<T> = CommonFailureReturn | CommonSuccessReturn<T>;
 
         type BroadcastTransactionResponse = {
-            /**交易的 id */
+            /**事件的 id */
             signature: string;
-            /**交易广播状态 */
+            /**事件广播状态 */
             status: string;
-            /**交易的接收状态 */
+            /**事件的接收状态 */
             newTrsStatus: string;
             /**最低手续费 */
             minFee: string;

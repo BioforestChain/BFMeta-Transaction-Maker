@@ -7,7 +7,7 @@ declare namespace TransactionMaker {
             useOld: boolean;
         };
 
-        /**交易通用参数 */
+        /**事件通用参数 */
         interface TransactionCommonParams {
             /**发起账户的密钥 */
             secret: string;
@@ -39,7 +39,7 @@ declare namespace TransactionMaker {
             numberOfEffectiveBlocks?: number;
             /**账户上一轮信息 */
             accountLastRoundInfo?: {
-                /**交易量 */
+                /**事件量 */
                 txCount: number;
                 /**权益数 */
                 equity: string;
@@ -48,7 +48,7 @@ declare namespace TransactionMaker {
             binaryInfos?: KVStorageInfo[];
         }
 
-        //交易体中的kvStorage信息
+        //事件体中的kvStorage信息
         type KVStorageInfo = {
             key: string;
             fileInfo: {
@@ -808,10 +808,38 @@ declare namespace TransactionMaker {
             migrateCertificate: MigrateCertificateJSON;
         }
 
-        type BroadcastTransactionParams = {
-            /**完整的交易体 */
+        interface MultipleTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**事件列表 */
+            transactions: TransactionMaker.TransactionJSON[];
+        }
+
+        interface PromiseTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺 */
             transaction: TransactionMaker.TransactionJSON;
-            /**接收交易的节点 ip */
+        }
+
+        interface PromiseResolveTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺 id */
+            promiseId: string;
+        }
+        interface MacroTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**输入 */
+            inputs: TransactionMaker.Macro.InputJSON[];
+            /**宏模板 */
+            template: TransactionMaker.TransactionJSON;
+        }
+
+        interface MacroCallTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**宏 id */
+            macroId: string;
+            /**输入 */
+            inputs: { [name: string]: string };
+        }
+
+        type BroadcastTransactionParams = {
+            /**完整的事件 */
+            transaction: TransactionMaker.TransactionJSON;
+            /**接收事件的节点 ip */
             ip?: string;
         };
     }

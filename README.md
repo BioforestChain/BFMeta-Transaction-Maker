@@ -22,7 +22,7 @@
 
 // 运行目录下建 config/config.json 填入以下内容
 {
-    "//port": "交易服务器监听的端口号",
+    "//port": "事件服务器监听的端口号",
     port: 8888,
     "//loggerConfig": "日志配置",
     loggerConfig: {
@@ -68,7 +68,7 @@ import { BFMetaTrMaker } from "@bfmeta/transaction-maker-api";
 import { PARENT_ASSET_TYPE } from "@bfmeta/transaction-maker-core";
 
 const config: TransactionMaker.Api.ConfigOptions = {
-    "//ips": "交易服务器的 ip，端口",
+    "//ips": "事件服务器的 ip，端口",
     ips: ["127.0.0.1:8888"],
     "//requestTimeout": "请求超时时间，默认 10000",
     requestTimeout: 10000,
@@ -76,7 +76,7 @@ const config: TransactionMaker.Api.ConfigOptions = {
 
 const bfmetaTrMaker = new BFMetaTrMaker(config);
 
-// 生成交易然后广播
+// 生成事件然后广播
 const result = await bfmetaTrMaker.transaction.generateTransferAny(argv, ipInfo.ip);
 
 if (result.success) {
@@ -95,7 +95,7 @@ if (result.success) {
 
 // 或者
 
-// 生成交易并且广播
+// 生成事件并且广播
 
 const result = await bfmetaTrMaker.transaction.sendTransferAny(argv, ipInfo);
 console.log(result);
