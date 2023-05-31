@@ -1,4 +1,4 @@
-import type { Config } from "./config";
+import type { Config } from "../config";
 import * as http from "node:http";
 import { parsePostRequestParameter } from "@bfmeta/transaction-maker-core";
 

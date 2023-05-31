@@ -1,4 +1,6 @@
 {
+    "//requestProtocol": "请求类型 http：http 协议，websocket：websocket 协议",
+    "requestProtocol": "websocket",
     "//ips": "事件服务器的 ip，端口",
     "ips": ["127.0.0.1:8888"],
     "//requestTimeout": "请求超时时间，默认 10000",

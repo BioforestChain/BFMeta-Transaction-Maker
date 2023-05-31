@@ -1,8 +1,10 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { REQUEST_PROTOCOL } from "./constants";
 
 export class Config {
     private __config: TransactionMaker.Api.Config = {
+        requestProtocol: REQUEST_PROTOCOL.WEBSOCKET,
         ips: ["127.0.0.1:8888"],
         requestTimeout: 10000,
     };
@@ -16,7 +18,8 @@ export class Config {
     }
 
     setConfig(configOptions: TransactionMaker.Api.ConfigOptions) {
-        const { ips, requestTimeout } = configOptions;
+        const { requestProtocol, ips, requestTimeout } = configOptions;
+        requestProtocol !== undefined && (this.__config.requestProtocol = requestProtocol);
         ips !== undefined && (this.__config.ips = ips);
         requestTimeout !== undefined && (this.__config.requestTimeout = requestTimeout);
     }

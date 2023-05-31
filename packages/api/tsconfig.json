@@ -83,8 +83,11 @@
         "src/atom_api/migrate_certificate/_migrateCertificateApi.ts",
         "src/atom_api/transactionApi.ts",
         "src/config.ts",
-        "src/httpHelper.ts",
-        "src/index.ts"
+        "src/constants.ts",
+        "src/index.ts",
+        "src/network/httpHelper.ts",
+        "src/network/index.ts",
+        "src/network/websocketHelper.ts"
     ],
     "references": [
         {
