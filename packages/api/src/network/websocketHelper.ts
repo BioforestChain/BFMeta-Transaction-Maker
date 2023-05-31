@@ -122,6 +122,8 @@ export class WebsocketHelper {
             } catch (e) {
                 clearTimeout(timeoutId);
                 return reject(e);
+            } finally {
+                clearTimeout(timeoutId);
             }
         });
     }
@@ -145,6 +147,8 @@ export class WebsocketHelper {
             } catch (e) {
                 clearTimeout(timeoutId);
                 return reject(e);
+            } finally {
+                clearTimeout(timeoutId);
             }
         });
     }
