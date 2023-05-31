@@ -15,7 +15,8 @@
     "license": "cc-by-4.0",
     "dependencies": {
         "@bfmeta/transaction-maker-core": "1.0.30",
-        "@bfmeta/transaction-maker-typings": "1.0.30"
+        "@bfmeta/transaction-maker-typings": "1.0.30",
+        "socket.io-client": "^4.6.1"
     },
     "gitHead": "985d104ee31422b5a72b208507f0e746aa921929",
     "files": [

@@ -23,9 +23,7 @@
     },
     "author": "BFMeta Team",
     "license": "cc-by-4.0",
-    "dependencies": {
-        "socket.io-client": "^4.6.1"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@types/node": "^16.0.0",
         "lerna": "^3.20.2"

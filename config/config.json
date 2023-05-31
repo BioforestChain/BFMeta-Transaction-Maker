@@ -1,5 +1,5 @@
 {
-    "//requestProtocol": "请求类型 http：http 协议，websocket：websocket 协议",
+    "//requestProtocol": "请求协议，http 或者 websocket，默认 websocket",
     "requestProtocol": "websocket",
     "//ips": "事件服务器的 ip，端口",
     "ips": ["127.0.0.1:8888"],
