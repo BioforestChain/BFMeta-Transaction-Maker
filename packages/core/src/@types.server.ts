@@ -40,6 +40,8 @@ declare namespace TransactionMaker {
         };
 
         type ConfigOptions = {
+            /**启动的进程数 */
+            numberOfWorkers?: number;
             /**服务监听的端口号 */
             port?: number;
             /**日志配置 */
