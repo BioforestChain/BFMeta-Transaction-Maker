@@ -23,6 +23,8 @@ declare namespace TransactionMaker {
         type LoggerConfigOptions = Partial<LoggerConfig>;
 
         type Config = {
+            /**启动的进程数 */
+            numberOfWorkers: number;
             /**服务监听的端口号 */
             port: number;
             /**日志配置 */
