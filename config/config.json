@@ -6,7 +6,9 @@
     "//requestTimeout": "请求超时时间，默认 10000",
     "requestTimeout": 10000,
 
-    "//port": "事件服务器监听的端口号",
+    "//numberOfWorkers": "启动的进程数，默认 3",
+    "numberOfWorkers": 3,
+    "//port": "事件服务器监听的端口号，",
     "port": 8888,
     "//loggerConfig": "日志配置",
     "loggerConfig": {

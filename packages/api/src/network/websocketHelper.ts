@@ -41,7 +41,9 @@ export class WebsocketHelper {
                 }
                 await Promise.all(taskList);
                 await sleep(60 * 1000);
-            } catch (error) {}
+            } catch (error) {
+                await sleep(1000);
+            }
         }
     }
 
