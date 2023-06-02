@@ -107,25 +107,22 @@ export class WebsocketHelper {
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
         return new Promise<T>(async (resolve, reject) => {
-            let timeoutId!: NodeJS.Timeout;
             try {
-                timeoutId = setTimeout(() => {
-                    clearTimeout(timeoutId);
-                    reject(new Error(`request timeout ${url}`));
-                }, this.__config.config.requestTimeout);
                 const socket = this.getSocket();
                 if (!socket) {
                     return reject(new Error(`no nodes available`));
                 }
                 socket.emit(url, argv, (result: T) => {
-                    clearTimeout(timeoutId);
                     return resolve(result);
                 });
+                socket.once("error", (data: any) => {
+                    reject(new Error(`request timeout ${url}`));
+                });
+                socket.once("disconnect", () => {
+                    reject(new Error(`request timeout ${url}`));
+                });
             } catch (e) {
-                clearTimeout(timeoutId);
                 return reject(e);
-            } finally {
-                clearTimeout(timeoutId);
             }
         });
     }
