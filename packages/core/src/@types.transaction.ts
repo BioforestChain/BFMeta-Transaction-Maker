@@ -98,7 +98,7 @@ declare namespace TransactionMaker {
                 amount: string;
             };
         }
-        interface DestoryAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+        interface DestroyAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**销毁的权益信息 */
             assetInfo: {
                 /**销毁的权益名，大写字母组成，3-5 个字符 */
@@ -422,7 +422,7 @@ declare namespace TransactionMaker {
                 };
             };
         }
-        interface DestoryEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
+        interface DestroyEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**要销毁的非同质资产信息 */
             entityInfo: {
                 /**要销毁的非同质资产发行事件的唯一标识符 */

@@ -150,7 +150,7 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     /**创建权益转移事件 */
     TR_TRANSFER_ASSET = "/generate/transferAsset",
     /**创建权益销毁事件 */
-    TR_DESTORY_ASSET = "/generate/destoryAsset",
+    TR_DESTROY_ASSET = "/generate/destroyAsset",
     /**创建权益赠送事件 */
     TR_GIFT_ASSET = "/generate/giftAsset",
     /**创建接受权益赠送事件 */
@@ -188,7 +188,7 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     /**创建非同质权益 */
     TR_ISSUE_ENTITY = "/generate/issueEntity",
     /**销毁非同质权益 */
-    TR_DESTORY_ENTITY = "/generate/destoryEntity",
+    TR_DESTROY_ENTITY = "/generate/destroyEntity",
 
     /**创建任意资产转移事件 */
     TR_TRANSFER_ANY = "/generate/transferAny",

@@ -10,7 +10,7 @@ declare namespace TransactionMaker {
 
         type IssueAssetApi = import("./atom_transaction").IssueAssetApi;
         type TransferAssetApi = import("./atom_transaction").TransferAssetApi;
-        type DestoryAssetApi = import("./atom_transaction").DestoryAssetApi;
+        type DestroyAssetApi = import("./atom_transaction").DestroyAssetApi;
         type GiftAssetApi = import("./atom_transaction").GiftAssetApi;
         type GrabAssetApi = import("./atom_transaction").GrabAssetApi;
         type TrustAssetApi = import("./atom_transaction").TrustAssetApi;
@@ -30,7 +30,7 @@ declare namespace TransactionMaker {
         type IssueEntityFactoryApi = import("./atom_transaction").IssueEntityFactoryApi;
         type IssueEntityFactoryV1Api = import("./atom_transaction").IssueEntityFactoryV1Api;
         type IssueEntityApi = import("./atom_transaction").IssueEntityApi;
-        type DestoryEntityApi = import("./atom_transaction").DestoryEntityApi;
+        type DestroyEntityApi = import("./atom_transaction").DestroyEntityApi;
 
         type ToExchangeAnyApi = import("./atom_transaction").ToExchangeAnyApi;
         type BeExchangeAnyApi = import("./atom_transaction").BeExchangeAnyApi;
