@@ -79,7 +79,7 @@ declare namespace TransactionMaker {
         interface IssueAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**发行的权益信息 */
             assetInfo: {
-                /**发行的权益名，大写字母组成，3-5 个字符 */
+                /**发行的权益名，大写字母组成，3-10 个字符 */
                 assetType: string;
                 /**发行的新权益总数，权益数量由0-9共十个数字组成，权益数量不包含小数点且必须大于0 */
                 expectedIssuedAssets: string;
@@ -90,9 +90,9 @@ declare namespace TransactionMaker {
             assetInfo: {
                 /**转移的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**转移的权益所属链名，小写字母组成，3-8 位 */
+                /**转移的权益所属链名，小写字母组成，5-20 位 */
                 sourceChainName?: string;
-                /**转移的权益类型，大写字母组成，3-5 个字符 */
+                /**转移的权益类型，大写字母组成，3-10 个字符 */
                 assetType?: string;
                 /**转移的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -101,7 +101,7 @@ declare namespace TransactionMaker {
         interface DestroyAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**销毁的权益信息 */
             assetInfo: {
-                /**销毁的权益名，大写字母组成，3-5 个字符 */
+                /**销毁的权益名，大写字母组成，3-10 个字符 */
                 assetType: string;
                 /**销毁的权益数，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -112,9 +112,9 @@ declare namespace TransactionMaker {
             assetInfo: {
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**赠送的权益所属链名，小写字母组成，3-8 位 */
+                /**赠送的权益所属链名，小写字母组成，5-20 位 */
                 sourceChainName?: string;
-                /**赠送的权益类型，大写字母组成，3-5 个字符 */
+                /**赠送的权益类型，大写字母组成，3-10 个字符 */
                 assetType?: string;
                 /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -141,7 +141,7 @@ declare namespace TransactionMaker {
                 sourceChainName: string;
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**赠送的权益名称，大写字母组成，3-8 个字符 */
+                /**赠送的权益名称，大写字母组成，5-20 个字符 */
                 assetType?: string;
                 /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -160,9 +160,9 @@ declare namespace TransactionMaker {
             assetInfo: {
                 /**委托权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**委托权益所属链名，小写字母组成，3-8 位 */
+                /**委托权益所属链名，小写字母组成，5-20 位 */
                 sourceChainName?: string;
-                /**委托权益类型，大写字母组成，3-5 个字符 */
+                /**委托权益类型，大写字母组成，3-10 个字符 */
                 assetType?: string;
                 /**委托的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -187,7 +187,7 @@ declare namespace TransactionMaker {
                 sourceChainName?: string;
                 /**见证的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**见证的权益名称，大写字母组成，3-8 个字符 */
+                /**见证的权益名称，大写字母组成，5-20 个字符 */
                 assetType: string;
                 /**见证的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -198,7 +198,7 @@ declare namespace TransactionMaker {
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
                 /**用于交换的权益名，可能为 dappid，位名或者权益名 */
                 toExchangeAsset: string;
@@ -209,7 +209,7 @@ declare namespace TransactionMaker {
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
                 /**被交换的资产/权益名，可能为 dappid，位名或者权益名 */
                 beExchangeAsset: string;
@@ -249,9 +249,9 @@ declare namespace TransactionMaker {
                 toExchangeChainName: string;
                 /**被交换的权益来源链名，小写字母组成，5-10 位 */
                 beExchangeChainName: string;
-                /**用于交换的权益名，大写字母组成，3-8 个字符 */
+                /**用于交换的权益名，大写字母组成，5-20 个字符 */
                 toExchangeAsset: string;
-                /**被交换的权益名，大写字母组成，3-8 个字符 */
+                /**被交换的权益名，大写字母组成，5-20 个字符 */
                 beExchangeAsset: string;
                 /**用于交换的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
                 toExchangeNumber: string;
@@ -329,7 +329,7 @@ declare namespace TransactionMaker {
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
                 /**用于交换的权益名，可能为 dappid，位名或者权益名 */
                 toExchangeAsset: string;
@@ -338,7 +338,7 @@ declare namespace TransactionMaker {
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
                 /**被交换的资产/权益名，可能为 dappid，位名或者权益名 */
                 beExchangeAsset: string;
@@ -367,9 +367,9 @@ declare namespace TransactionMaker {
                 toExchangeChainName: string;
                 /**被交换的资产/权益来源链名，小写字母组成，5-10 位 */
                 beExchangeChainName: string;
-                /**用于交换的权益/资产名，大写字母组成，3-8 个字符 */
+                /**用于交换的权益/资产名，大写字母组成，5-20 个字符 */
                 toExchangeAsset: string;
-                /**被交换的资产/权益名，大写字母组成，3-8 个字符 */
+                /**被交换的资产/权益名，大写字母组成，5-20 个字符 */
                 beExchangeAsset: string;
                 /**用于交换或交换得到的权益数量，权益数量由0-9共十个数字组成，权益数量不包含小数点且必须大于0 */
                 exchangeNumber: string;
@@ -407,7 +407,7 @@ declare namespace TransactionMaker {
                 entityFactoryPossessor: string;
                 /**非同质资产的模板 */
                 entityFactory: {
-                    /**非同质资产模板来源链名，小写字母组成，3-8 位 */
+                    /**非同质资产模板来源链名，小写字母组成，5-20 位 */
                     sourceChainName?: string;
                     /**非同质资产模板来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                     sourceChainMagic?: string;
@@ -435,7 +435,7 @@ declare namespace TransactionMaker {
                 entityFactoryPossessor: string;
                 /**非同质资产的模板 */
                 entityFactory: {
-                    /**非同质资产模板来源链名，小写字母组成，3-8 位 */
+                    /**非同质资产模板来源链名，小写字母组成，5-20 位 */
                     sourceChainName?: string;
                     /**非同质资产模板来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                     sourceChainMagic?: string;
@@ -467,11 +467,11 @@ declare namespace TransactionMaker {
             toExchangeInfo: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**用于交换的权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 toExchangeAssetType: string;
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
@@ -480,11 +480,11 @@ declare namespace TransactionMaker {
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 beExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum?: string;
@@ -513,9 +513,9 @@ declare namespace TransactionMaker {
                 toExchangeSource?: string;
                 /**被交换的资产来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**用于交换的资产来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**被交换的资产来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
                 /**用于交换的资产所属大类 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
@@ -543,11 +543,11 @@ declare namespace TransactionMaker {
             assetInfo: {
                 /**转移的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**转移的资产所属链名，小写字母组成，3-8 位 */
+                /**转移的资产所属链名，小写字母组成，5-20 位 */
                 sourceChainName?: string;
-                /**转移的资产所属类型 */
+                /**转移的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 parentAssetType: PARENT_ASSET_TYPE;
-                /**转移的资产类型，大写字母组成，3-5 个字符 */
+                /**转移的资产类型，大写字母组成，3-10 个字符 */
                 assetType: string;
                 /**转移的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -561,11 +561,11 @@ declare namespace TransactionMaker {
             assetInfo: {
                 /**赠送的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**赠送的资产所属链名，小写字母组成，3-8 位 */
+                /**赠送的资产所属链名，小写字母组成，5-20 位 */
                 sourceChainName?: string;
                 /**赠送的资产所属类型 */
                 parentAssetType: PARENT_ASSET_TYPE;
-                /**赠送的资产类型，大写字母组成，3-5 个字符 */
+                /**赠送的资产类型，大写字母组成，3-10 个字符 */
                 assetType: string;
                 /**赠送的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
                 amount: string;
@@ -596,9 +596,9 @@ declare namespace TransactionMaker {
                 sourceChainName?: string;
                 /**赠送的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic?: string;
-                /**转移的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 */
+                /**赠送的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 parentAssetType: PARENT_ASSET_TYPE;
-                /**赠送的资产名称，大写字母组成，3-8 个字符 */
+                /**赠送的资产名称，大写字母组成，5-20 个字符 */
                 assetType: string;
                 /**赠送的资产数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -629,7 +629,7 @@ declare namespace TransactionMaker {
                 entityFactoryPossessor: string;
                 /**非同质资产的模板 */
                 entityFactory: {
-                    /**非同质资产模板来源链名，小写字母组成，3-8 位 */
+                    /**非同质资产模板来源链名，小写字母组成，5-20 位 */
                     sourceChainName?: string;
                     /**非同质资产模板来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                     sourceChainMagic?: string;
@@ -650,11 +650,11 @@ declare namespace TransactionMaker {
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**用于交换的权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 toExchangeAssetType: string;
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
@@ -667,11 +667,11 @@ declare namespace TransactionMaker {
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 beExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum?: string;
@@ -689,11 +689,11 @@ declare namespace TransactionMaker {
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**用于交换的权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 toExchangeAssetType: string;
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
@@ -706,11 +706,11 @@ declare namespace TransactionMaker {
             beExchangeInfo: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 beExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum?: string;
@@ -726,11 +726,11 @@ declare namespace TransactionMaker {
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**用于交换的权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 toExchangeAssetType: string;
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
@@ -741,11 +741,11 @@ declare namespace TransactionMaker {
             beExchangeInfos: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 beExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum: string;
@@ -763,11 +763,11 @@ declare namespace TransactionMaker {
             toExchangeInfos: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 toExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**用于交换的权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 toExchangeAssetType: string;
                 /**用于交换的资产数量，0-9 组成并且不包含小数点 */
                 toExchangeAssetPrealnum: string;
@@ -778,11 +778,11 @@ declare namespace TransactionMaker {
             beExchangeInfos: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 凭证 6 */
                 beExchangeParentAssetType: PARENT_ASSET_TYPE;
-                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名，权益名或者凭证 */
                 beExchangeAssetType: string;
                 /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
                 beExchangeAssetPrealnum: string;
@@ -857,5 +857,19 @@ declare namespace TransactionMaker {
             defineInputs: Macro.InputJSON[];
             inputs: Record<string, string>;
         };
+
+        interface IssueCertificateTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**凭证，1-100 个字符，大小写字母，数字，-，_ 组成，（上链高度:凭证 id，例如 88888888:88888888） */
+            certificateId: string;
+            /**凭证类型：0 不允许销毁，1 只能在发行者持有时销毁，2 持有者销毁 */
+            type: number;
+        }
+
+        interface DestroyCertificateTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**凭证，1-100 个字符，大小写字母，数字，-，_ 组成，（上链高度:凭证 id，例如 88888888:88888888） */
+            certificateId: string;
+            /**凭证类型：0 不允许销毁，1 发行者持有时销毁，2 持有者销毁 */
+            type: number;
+        }
     }
 }

@@ -44,6 +44,8 @@ import {
     PromiseResolveApi,
     MacroApi,
     MacroCallApi,
+    IssueCertificateApi,
+    DestroyCertificateApi,
     UtilApi,
 } from "./atom_transaction";
 
@@ -105,6 +107,8 @@ export class TransactionApi {
         const promiseResolveApi = new PromiseResolveApi(networkHelper, utilApi);
         const macroApi = new MacroApi(networkHelper, utilApi);
         const macroCallApi = new MacroCallApi(networkHelper, utilApi);
+        const issueCertificateApi = new IssueCertificateApi(networkHelper, utilApi);
+        const destroyCertificateApi = new DestroyCertificateApi(networkHelper, utilApi);
 
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
         TRANSACTION_API_MAP.set(signatureApi.GENERATE_API_PATH, signatureApi);
@@ -151,6 +155,8 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(promiseResolveApi.GENERATE_API_PATH, promiseResolveApi);
         TRANSACTION_API_MAP.set(macroApi.GENERATE_API_PATH, macroApi);
         TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
+        TRANSACTION_API_MAP.set(issueCertificateApi.GENERATE_API_PATH, issueCertificateApi);
+        TRANSACTION_API_MAP.set(destroyCertificateApi.GENERATE_API_PATH, destroyCertificateApi);
 
         Object.freeze(TRANSACTION_API_MAP);
     }
@@ -767,6 +773,32 @@ export class TransactionApi {
     /**发送宏调用事件 */
     async sendMacroCall(argv: TransactionMaker.Transaction.MacroCallTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建发行凭证事件 */
+    async generateIssueCertificate(argv: TransactionMaker.Transaction.IssueCertificateTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.IssueCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_CERTIFICATE);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送发行凭证事件 */
+    async sendIssueCertificate(argv: TransactionMaker.Transaction.IssueCertificateTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.IssueCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_CERTIFICATE);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建销毁事件 */
+    async generateDestroyCertificate(argv: TransactionMaker.Transaction.DestroyCertificateTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送销毁事件 */
+    async sendDestroyCertificate(argv: TransactionMaker.Transaction.DestroyCertificateTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
         const result = await api.sendTransaction(argv, ipInfo);
         return result;
     }

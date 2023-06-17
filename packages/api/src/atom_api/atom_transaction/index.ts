@@ -53,4 +53,7 @@ export * from "./promiseResolveApi";
 export * from "./macroApi";
 export * from "./macroCallApi";
 
+export * from "./issueCertificateApi";
+export * from "./destroyCertificateApi";
+
 export * from "./utilApi";

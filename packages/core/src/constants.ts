@@ -50,6 +50,8 @@ export const enum PARENT_ASSET_TYPE {
     ENTITY = 3,
     /**资产类型: 权益 */
     ASSETS = 5,
+    /**资产类型: 凭证 */
+    CERTIFICATE = 6,
 }
 
 export const enum GIFT_DISTRIBUTION_RULE {
@@ -232,6 +234,11 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     TR_MACRO = "/generate/macro",
     /**创建宏调用事件 */
     TR_MACRO_CALL = "/generate/macroCall",
+
+    /**创建发行凭证事件 */
+    TR_ISSUE_CERTIFICATE = "/generate/issueCertificate",
+    /**创建销毁凭证事件 */
+    TR_DESTROY_CERTIFICATE = "/generate/destroyCertificate",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {
