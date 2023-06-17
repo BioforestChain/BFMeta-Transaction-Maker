@@ -15,6 +15,7 @@ declare namespace TransactionMaker {
     type LOGGER_LEVEL = import("./constants").LOGGER_LEVEL;
     type MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE;
     type MACRO_NUMBER_FORMAT = import("./constants").MACRO_NUMBER_FORMAT;
+    type CERTIFICATE_TYPE = import("./constants").CERTIFICATE_TYPE;
 
     interface TransactionStorageJSON {
         /**事件的索引键，提供额外查询使用的字段名 */

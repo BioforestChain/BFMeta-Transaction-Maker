@@ -398,3 +398,12 @@ export const enum MACRO_NUMBER_FORMAT {
     /**数字字面量 */
     LITERAL = "literal",
 }
+
+export const enum CERTIFICATE_TYPE {
+    /**禁止销毁 */
+    DESTROY_FORBIDDEN = 0,
+    /**发行者销毁 */
+    DESTROY_BY_APPLICANT = 1,
+    /**拥有者销毁 */
+    DESTROY_BY_POSSESSOR = 2,
+}

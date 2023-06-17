@@ -864,7 +864,7 @@ declare namespace TransactionMaker {
                 /**凭证，1-100 个字符，大小写字母，数字，-，_ 组成，（上链高度:凭证 id，例如 88888888:88888888） */
                 certificateId: string;
                 /**凭证类型：0 不允许销毁，1 只能在发行者持有时销毁，2 持有者销毁 */
-                type: number;
+                type: CERTIFICATE_TYPE;
             };
         }
 
@@ -874,7 +874,7 @@ declare namespace TransactionMaker {
                 /**凭证，1-100 个字符，大小写字母，数字，-，_ 组成，（上链高度:凭证 id，例如 88888888:88888888） */
                 certificateId: string;
                 /**凭证类型：0 不允许销毁，1 只能在发行者持有时销毁，2 持有者销毁 */
-                type: number;
+                type: CERTIFICATE_TYPE;
             };
         }
     }
