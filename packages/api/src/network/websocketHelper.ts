@@ -107,21 +107,26 @@ export class WebsocketHelper {
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
         return new Promise<T>(async (resolve, reject) => {
+            const socket = this.getSocket();
+            if (!socket) {
+                return reject(new Error(`no nodes available`));
+            }
+            const onError = () => {
+                reject(new Error(`request timeout ${url}`));
+            };
+            const offEvent = () => {
+                socket.off("error", onError);
+                socket.off("disconnect", onError);
+            };
             try {
-                const socket = this.getSocket();
-                if (!socket) {
-                    return reject(new Error(`no nodes available`));
-                }
                 socket.emit(url, argv, (result: T) => {
+                    offEvent();
                     return resolve(result);
                 });
-                socket.once("error", (data: any) => {
-                    reject(new Error(`request timeout ${url}`));
-                });
-                socket.once("disconnect", () => {
-                    reject(new Error(`request timeout ${url}`));
-                });
+                socket.once("error", onError);
+                socket.once("disconnect", onError);
             } catch (e) {
+                offEvent();
                 return reject(e);
             }
         });
