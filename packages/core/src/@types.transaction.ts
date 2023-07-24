@@ -821,6 +821,8 @@ declare namespace TransactionMaker {
         interface PromiseResolveTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**承诺 id */
             promiseId: string;
+            /**承诺 */
+            transaction: TransactionMaker.TransactionJSON;
         }
         interface MacroTransactionParams extends TransactionCommonParamsWithoutRecipientId {
             /**输入 */
@@ -834,6 +836,8 @@ declare namespace TransactionMaker {
             macroId: string;
             /**输入 */
             inputs: { [name: string]: string };
+            /**生成的完整事件 */
+            transaction: TransactionMaker.TransactionJSON;
         }
 
         type BroadcastTransactionParams = {

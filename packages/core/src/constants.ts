@@ -387,6 +387,7 @@ export const enum NEW_TRANSACTION_REFUSE_REASON {
 export const enum MACRO_INPUT_TYPE {
     TEXT = "text",
     ADDRESS = "address",
+    PUBLICKEY = "publicKey",
     SIGNATURE = "signature",
     NUMBER = "number",
     CALC = "calc",

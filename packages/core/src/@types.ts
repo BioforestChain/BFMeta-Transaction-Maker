@@ -185,8 +185,10 @@ declare namespace TransactionMaker {
         }
         interface TextInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.TEXT> extends BaseInputJSON<T> {}
         interface AddressInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.ADDRESS> extends TextInputJSON<T> {}
+        interface PublicKeyInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.PUBLICKEY> extends TextInputJSON<T> {}
         interface SignatureInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.SIGNATURE> extends TextInputJSON<T> {}
         interface NumberInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.NUMBER> extends BaseInputJSON<T> {
+            base?: FractionJSON<string>;
             min?: FractionJSON<string>;
             max?: FractionJSON<string>;
             step?: FractionJSON<string>;
