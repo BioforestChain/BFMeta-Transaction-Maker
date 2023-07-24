@@ -198,7 +198,7 @@ declare namespace TransactionMaker {
             calc: string;
         }
 
-        type InputJSON = TextInputJSON | AddressInputJSON | SignatureInputJSON | NumberInputJSON | CalcInputJSON;
+        type InputJSON = TextInputJSON | AddressInputJSON | PublicKeyInputJSON | SignatureInputJSON | NumberInputJSON | CalcInputJSON;
     }
 
     type IpInfo = {
