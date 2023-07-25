@@ -182,6 +182,8 @@ declare namespace TransactionMaker {
             keyPath: string;
             /**regexp */
             pattern?: string;
+            /**array */
+            repeat?: boolean;
         }
         interface TextInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.TEXT> extends BaseInputJSON<T> {}
         interface AddressInputJSON<T extends MACRO_INPUT_TYPE = import("./constants").MACRO_INPUT_TYPE.ADDRESS> extends TextInputJSON<T> {}
