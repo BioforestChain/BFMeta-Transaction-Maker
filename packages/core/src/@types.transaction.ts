@@ -860,6 +860,7 @@ declare namespace TransactionMaker {
             template: T;
             defineInputs: Macro.InputJSON[];
             inputs: Record<string, string>;
+            parseInput?: boolean;
         };
 
         interface IssueCertificateTransactionParams extends TransactionCommonParamsWithRecipientId {
