@@ -277,8 +277,8 @@ export const enum COMMON_API_PATH {
     GENERATE_BLOB_SEED = "/common/generateBlobSeed",
     /**服务器时间校正 */
     TIME_CORRECTING = "/common/correcting",
-    /**获取节点的可能最新区块高度 */
-    MAYBE_HEIGHT = "/common/maybeHeight",
+    /**获取节点信息 */
+    MAYBE_PEER_INFO = "/common/maybePeerInfo",
 
     /**生成注册链凭证 */
     GENERATE_REGISTER_CHAIN_CERTIFICATE = "/common/generateRegisterChainCertificate",

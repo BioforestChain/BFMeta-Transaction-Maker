@@ -10,7 +10,7 @@ export * from "./calcTransactionMinFee";
 export * from "./generateCiphertextSignatureApi";
 export * from "./generateBlobSeedApi";
 export * from "./timeCorrectingApi";
-export * from "./maybeHeightApi";
+export * from "./maybePeerInfoApi";
 export * from "./generateRegisterChainCertificateApi";
 export * from "./transactionMakerInfoApi";
 export * from "./parseToMacroCallInputs";
