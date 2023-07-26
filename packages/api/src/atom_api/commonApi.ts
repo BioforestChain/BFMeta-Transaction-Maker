@@ -187,7 +187,7 @@ export class CommonApi {
     }
 
     /**计算用户抢到的资产数量 */
-    async calcGrabbedAssetNumberApi(argv: TransactionMaker.Common.CalcGrabbedAssetNumberParams, ip?: string) {
+    async calcGrabbedAssetNumber(argv: TransactionMaker.Common.CalcGrabbedAssetNumberParams, ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.CalcGrabbedAssetNumberApi>(COMMON_API_PATH.CALC_GRABBED_ASSET_NUMBER);
         const result = await api.sendPostRequest(argv, ip);
         return result;
