@@ -116,9 +116,14 @@ declare namespace TransactionMaker {
             ip?: string;
         }
 
-        interface MaybeHeightParams extends CommonParams {
+        interface MaybePeerInfoParams extends CommonParams {
             /**目标节点 ip */
             ip?: string;
+        }
+
+        interface MaybePeerInfo {
+            timestamp: number;
+            maybeHeight: number;
         }
 
         interface GenerateRegisterChainCertificateParams extends CommonParams {

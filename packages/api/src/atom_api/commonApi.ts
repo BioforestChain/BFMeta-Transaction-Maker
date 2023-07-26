@@ -11,7 +11,7 @@ import {
     GenerateCiphertextSignatureApi,
     GenerateBlobSeedApi,
     TimeCorrectingApi,
-    MaybeHeightApi,
+    MaybePeerInfoApi,
     GenerateRegisterChainCertificateApi,
     TransactionMakerInfoApi,
     ParseToMacroCallInputsApi,
@@ -42,7 +42,7 @@ export class CommonApi {
         const generateCiphertextSignatureApi = new GenerateCiphertextSignatureApi(networkHelper);
         const generateBlobSeedApi = new GenerateBlobSeedApi(networkHelper);
         const timeCorrectingApi = new TimeCorrectingApi(networkHelper);
-        const maybeHeightApi = new MaybeHeightApi(networkHelper);
+        const maybePeerInfoApi = new MaybePeerInfoApi(networkHelper);
         const generateRegisterChainCertificateApi = new GenerateRegisterChainCertificateApi(networkHelper);
         const transactionMakerInfoApi = new TransactionMakerInfoApi(networkHelper);
         const parseToMacroCallInputsApi = new ParseToMacroCallInputsApi(networkHelper);
@@ -60,7 +60,7 @@ export class CommonApi {
         COMMON_API_MAP.set(generateCiphertextSignatureApi.EXEC_API_PATH, generateCiphertextSignatureApi);
         COMMON_API_MAP.set(generateBlobSeedApi.EXEC_API_PATH, generateBlobSeedApi);
         COMMON_API_MAP.set(timeCorrectingApi.EXEC_API_PATH, timeCorrectingApi);
-        COMMON_API_MAP.set(maybeHeightApi.EXEC_API_PATH, maybeHeightApi);
+        COMMON_API_MAP.set(maybePeerInfoApi.EXEC_API_PATH, maybePeerInfoApi);
         COMMON_API_MAP.set(generateRegisterChainCertificateApi.EXEC_API_PATH, generateRegisterChainCertificateApi);
         COMMON_API_MAP.set(transactionMakerInfoApi.EXEC_API_PATH, transactionMakerInfoApi);
         COMMON_API_MAP.set(parseToMacroCallInputsApi.EXEC_API_PATH, parseToMacroCallInputsApi);
@@ -158,9 +158,9 @@ export class CommonApi {
         return result;
     }
 
-    /**获取节点可能的最新高度 */
-    async maybeHeight(argv: TransactionMaker.Common.MaybeHeightParams = {}, ip?: string) {
-        const api = this.__getCommonApi<TransactionMaker.Common.MaybeHeightApi>(COMMON_API_PATH.MAYBE_HEIGHT);
+    /**获取节点可能的最新信息 */
+    async maybePeerInfo(argv: TransactionMaker.Common.MaybePeerInfoParams = {}, ip?: string) {
+        const api = this.__getCommonApi<TransactionMaker.Common.MaybePeerInfoApi>(COMMON_API_PATH.MAYBE_PEER_INFO);
         const result = await api.sendPostRequest(argv, ip);
         return result;
     }
