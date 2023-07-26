@@ -285,6 +285,11 @@ export const enum COMMON_API_PATH {
 
     /**获取服务器基础信息 */
     TRANSACTION_MAKER_INFO = "/common/transactionMakerInfo",
+
+    /**计算用户抢到的资产数量 */
+    CALC_GRABBED_ASSET_NUMBER = "/common/calcGrabbedAssetNumber",
+    /**转成 macroCall 需要的 inputs */
+    PARSE_TO_MACRO_CALL_INPUTS = "/common/parseToMacroCallInputs",
 }
 
 export const enum NEW_TRANSACTION_REFUSE_REASON {

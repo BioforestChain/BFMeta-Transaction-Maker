@@ -170,5 +170,31 @@ declare namespace TransactionMaker {
             /**支持链 */
             supportChain: string;
         }
+
+        interface CalcGrabbedAssetNumberParams extends CommonParams {
+            /**接受赠送的用户 id */
+            grabberId: string;
+            /**礼物所在的区块 id */
+            blockSignature: string;
+            /**礼物的 id */
+            giftId: string;
+            /**赠送者的 id */
+            giverId: string;
+            /**赠送的数量 */
+            amount: string;
+            /**赠送的数量 */
+            totalGrabableTimes: number;
+            /**赠送规则 */
+            giftDistributionRule: GIFT_DISTRIBUTION_RULE;
+        }
+
+        interface ParseToMacroCallInputsParams extends CommonParams {
+            /**完整的 input */
+            inpputs: { [name: string]: any };
+        }
+
+        interface MacroCallInputs {
+            [name: string]: string;
+        }
     }
 }
