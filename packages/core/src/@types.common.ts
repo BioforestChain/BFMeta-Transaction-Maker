@@ -190,7 +190,7 @@ declare namespace TransactionMaker {
 
         interface ParseToMacroCallInputsParams extends CommonParams {
             /**完整的 input */
-            inpputs: { [name: string]: any };
+            inputs: { [name: string]: any };
         }
 
         interface MacroCallInputs {
