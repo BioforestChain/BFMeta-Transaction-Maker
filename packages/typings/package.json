@@ -1,6 +1,6 @@
 {
     "name": "@bfmeta/transaction-maker-typings",
-    "version": "1.0.49",
+    "version": "1.0.50",
     "description": "transaction-maker-typings for the third party",
     "main": "build/cjs/index.js",
     "type": "commonjs",
