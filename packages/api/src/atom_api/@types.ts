@@ -85,5 +85,7 @@ declare namespace TransactionMaker {
         type MaybeHeightApi = import("./atom_common").MaybeHeightApi;
         type GenerateRegisterChainCertificateApi = import("./atom_common").GenerateRegisterChainCertificateApi;
         type TransactionMakerInfoApi = import("./atom_common").TransactionMakerInfoApi;
+        type ParseToMacroCallInputsApi = import("./atom_common").ParseToMacroCallInputsApi;
+        type CalcGrabbedAssetNumberApi = import("./atom_common").CalcGrabbedAssetNumberApi;
     }
 }

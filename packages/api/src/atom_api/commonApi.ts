@@ -14,6 +14,8 @@ import {
     MaybeHeightApi,
     GenerateRegisterChainCertificateApi,
     TransactionMakerInfoApi,
+    ParseToMacroCallInputsApi,
+    CalcGrabbedAssetNumberApi,
 } from "./atom_common";
 
 import { COMMON_API_PATH } from "@bfmeta/transaction-maker-core";
@@ -43,6 +45,8 @@ export class CommonApi {
         const maybeHeightApi = new MaybeHeightApi(networkHelper);
         const generateRegisterChainCertificateApi = new GenerateRegisterChainCertificateApi(networkHelper);
         const transactionMakerInfoApi = new TransactionMakerInfoApi(networkHelper);
+        const parseToMacroCallInputsApi = new ParseToMacroCallInputsApi(networkHelper);
+        const calcGrabbedAssetNumberApi = new CalcGrabbedAssetNumberApi(networkHelper);
 
         COMMON_API_MAP.set(verifyAddressApi.EXEC_API_PATH, verifyAddressApi);
         COMMON_API_MAP.set(verifyPublicKeyApi.EXEC_API_PATH, verifyPublicKeyApi);
@@ -59,6 +63,8 @@ export class CommonApi {
         COMMON_API_MAP.set(maybeHeightApi.EXEC_API_PATH, maybeHeightApi);
         COMMON_API_MAP.set(generateRegisterChainCertificateApi.EXEC_API_PATH, generateRegisterChainCertificateApi);
         COMMON_API_MAP.set(transactionMakerInfoApi.EXEC_API_PATH, transactionMakerInfoApi);
+        COMMON_API_MAP.set(parseToMacroCallInputsApi.EXEC_API_PATH, parseToMacroCallInputsApi);
+        COMMON_API_MAP.set(calcGrabbedAssetNumberApi.EXEC_API_PATH, calcGrabbedAssetNumberApi);
 
         Object.freeze(COMMON_API_MAP);
     }
@@ -170,6 +176,20 @@ export class CommonApi {
     async transactionMakerInfo(ip?: string) {
         const api = this.__getCommonApi<TransactionMaker.Common.TransactionMakerInfoApi>(COMMON_API_PATH.TRANSACTION_MAKER_INFO);
         const result = await api.sendGetRequest(ip);
+        return result;
+    }
+
+    /**转换成 macroCall 需要的 inputs */
+    async parseToMacroCallInputs(argv: TransactionMaker.Common.ParseToMacroCallInputsParams, ip?: string) {
+        const api = this.__getCommonApi<TransactionMaker.Common.ParseToMacroCallInputsApi>(COMMON_API_PATH.PARSE_TO_MACRO_CALL_INPUTS);
+        const result = await api.sendPostRequest(argv, ip);
+        return result;
+    }
+
+    /**计算用户抢到的资产数量 */
+    async calcGrabbedAssetNumberApi(argv: TransactionMaker.Common.CalcGrabbedAssetNumberParams, ip?: string) {
+        const api = this.__getCommonApi<TransactionMaker.Common.CalcGrabbedAssetNumberApi>(COMMON_API_PATH.CALC_GRABBED_ASSET_NUMBER);
+        const result = await api.sendPostRequest(argv, ip);
         return result;
     }
     // #endregion

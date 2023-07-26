@@ -14,3 +14,4 @@ export * from "./maybeHeightApi";
 export * from "./generateRegisterChainCertificateApi";
 export * from "./transactionMakerInfoApi";
 export * from "./parseToMacroCallInputs";
+export * from "./calcGrabbedAssetNumber";
