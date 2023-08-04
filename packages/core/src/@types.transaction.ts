@@ -133,6 +133,8 @@ declare namespace TransactionMaker {
             blockSignature: string;
             /**赠送事件的签名，128 个字节的 16 进制字符串 */
             transactionSignature: string;
+            /**抢到的数量 */
+            amount?: string;
             /**权益赠送信息 */
             giftAsset: {
                 /**加密密钥生成的公钥数组 */
