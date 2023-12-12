@@ -49,7 +49,7 @@ import {
     UtilApi,
 } from "./atom_transaction";
 
-import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
+import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 export class TransactionApi {
     private __TRANSACTION_API_MAP = new Map<TransactionMaker.Transaction.GENERATE_TRANSACTION_API_PATH, TransactionMaker.Transaction.TransactionApi>();

@@ -18,7 +18,7 @@ import {
     CalcGrabbedAssetNumberApi,
 } from "./atom_common";
 
-import { COMMON_API_PATH } from "@bfmeta/transaction-maker-core";
+import { COMMON_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 export class CommonApi {
     private __COMMON_API_MAP = new Map<TransactionMaker.Common.COMMON_API_PATH, TransactionMaker.Common.CommonApi>();

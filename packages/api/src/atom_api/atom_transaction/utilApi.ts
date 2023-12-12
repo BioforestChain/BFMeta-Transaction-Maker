@@ -1,5 +1,5 @@
 import { _TransactionApi } from "./_transactionApi";
-import { UTIL_API_PATH } from "@bfmeta/transaction-maker-core";
+import { UTIL_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 /**
  * 工具接口

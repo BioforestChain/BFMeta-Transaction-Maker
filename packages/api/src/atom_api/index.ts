@@ -1,6 +1,6 @@
 import "@bfmeta/transaction-maker-typings";
 
-import type {} from "@bfmeta/transaction-maker-core";
+import type {} from "@bfmeta/transaction-maker-typings";
 
 import "./@types";
 

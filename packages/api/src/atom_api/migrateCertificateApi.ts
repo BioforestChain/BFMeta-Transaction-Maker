@@ -1,6 +1,6 @@
 import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate";
 
-import { MIGRATE_CERTIFICATE_API_PATH } from "@bfmeta/transaction-maker-core";
+import { MIGRATE_CERTIFICATE_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 export class MigrateCertificateApi {
     private __MIGRATE_CERTIFICATE_API_MAP = new Map<

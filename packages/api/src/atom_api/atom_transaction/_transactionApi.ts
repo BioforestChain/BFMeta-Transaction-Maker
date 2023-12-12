@@ -1,4 +1,4 @@
-import type { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
+import type { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-typings";
 import type { UtilApi } from "./utilApi";
 
 export abstract class _TransactionApi<T extends TransactionMaker.TransactionJSON> {

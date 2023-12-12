@@ -1,5 +1,5 @@
 import { _TransactionApi } from "./_transactionApi";
-import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-core";
+import { GENERATE_TRANSACTION_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 export class GrabAssetApi extends _TransactionApi<TransactionMaker.TransactionJSON> {
     readonly GENERATE_API_PATH = GENERATE_TRANSACTION_API_PATH.TR_GRAB_ASSET;

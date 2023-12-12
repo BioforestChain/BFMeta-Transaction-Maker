@@ -91,12 +91,10 @@
         "src/index.ts",
         "src/network/httpHelper.ts",
         "src/network/index.ts",
+        "src/network/requestParameterParser.ts",
         "src/network/websocketHelper.ts"
     ],
     "references": [
-        {
-            "path": "../core/tsconfig.json"
-        },
         {
             "path": "../typings/tsconfig.json"
         }

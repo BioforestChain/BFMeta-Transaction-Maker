@@ -1,5 +1,5 @@
 import { MigrateCertificateApi } from "./_migrateCertificateApi";
-import { MIGRATE_CERTIFICATE_API_PATH } from "@bfmeta/transaction-maker-core";
+import { MIGRATE_CERTIFICATE_API_PATH } from "@bfmeta/transaction-maker-typings";
 
 export class ToAuthSignatureMigrateCertificateApi extends MigrateCertificateApi {
     readonly GENERATE_API_PATH = MIGRATE_CERTIFICATE_API_PATH.MIGRATE_CERTIFICATE_TO_AUTH_SIGNATURE;
