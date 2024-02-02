@@ -72,4 +72,27 @@ export class UtilApi {
             return errorInfo;
         }
     }
+
+    readonly CHANGE_BLOBS_PATH_API_PATH = UTIL_API_PATH.CHANGE_BLOBS_PATH;
+    /**
+     * 更改blob存储区域
+     * @param argv
+     * @returns
+     */
+    async changeBlobsPath(argv: TransactionMaker.Transaction.ChangeBlobsPathParams) {
+        try {
+            const result = await this.networkHelper.sendPostRequest<TransactionMaker.Server.BroadcastTransactionReturn>(this.CHANGE_BLOBS_PATH_API_PATH, argv);
+            return result;
+        } catch (e: any) {
+            const errorInfo: TransactionMaker.Server.BroadcastTransactionFailureReturn = {
+                success: false,
+                error: {
+                    code: "7001",
+                    message: `request api ${this.CHANGE_BLOBS_PATH_API_PATH} error`,
+                    description: e.message,
+                },
+            };
+            return errorInfo;
+        }
+    }
 }

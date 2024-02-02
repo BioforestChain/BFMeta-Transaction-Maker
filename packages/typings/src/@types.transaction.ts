@@ -868,6 +868,13 @@ declare global {
                 parseInput?: boolean;
             };
 
+            export type ChangeBlobsPathParams = {
+                /**blobHash的数组 */
+                blobHashArray: string[];
+                /**区块高度 */
+                height: number;
+            };
+
             export interface IssueCertificateTransactionParams extends TransactionCommonParamsWithRecipientId {
                 /**发行的 certificate 信息 */
                 certificateInfo: {

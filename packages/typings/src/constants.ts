@@ -131,6 +131,8 @@ export const enum UTIL_API_PATH {
     MACRO_BUILD = "/util/macroBuild",
     /**交易工具 */
     RECOMBINE = "/util/recombine",
+    /**更改blob存储区域 */
+    CHANGE_BLOBS_PATH = "/util/changeBlobsPath",
 }
 
 export const enum GENERATE_TRANSACTION_API_PATH {

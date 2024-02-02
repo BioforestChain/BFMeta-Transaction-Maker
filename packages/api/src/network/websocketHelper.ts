@@ -52,7 +52,6 @@ export class WebsocketHelper {
             const wsHost = this.__getWebsocketHost(url);
             const socket = io.connect(wsHost, {
                 transports: ["websocket"],
-                reconnectionAttempts: 3,
                 timeout: this.__config.config.requestTimeout,
                 transportOptions: {
                     websocket: {

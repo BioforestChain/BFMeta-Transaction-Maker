@@ -184,6 +184,12 @@ export class TransactionApi {
         return result;
     }
 
+    /**更改blob存储区域 */
+    async changeBlobsPath(argv: TransactionMaker.Transaction.ChangeBlobsPathParams) {
+        const result = await this.utilApi.changeBlobsPath(argv);
+        return result;
+    }
+
     /**创建设置用户名事件 */
     async generateUsername(argv: TransactionMaker.Transaction.UsernameTransactionParams, ip?: string) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.UsernameApi>(GENERATE_TRANSACTION_API_PATH.TR_USERNAME);
