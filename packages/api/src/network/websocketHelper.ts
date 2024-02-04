@@ -29,21 +29,28 @@ export class WebsocketHelper {
     private __socketMap = new Map<string, Socket>();
 
     private async __init() {
-        while (true) {
-            try {
-                const taskList: Promise<void>[] = [];
-                const { ips } = this.__config.config;
-                for (const ip of ips) {
-                    const url = this.__getUrl(ip);
-                    if (!this.__socketMap.has(url)) {
-                        taskList.push(this.__reconnect(url));
-                    }
+        try {
+            const taskList: Promise<void>[] = [];
+            const { ips } = this.__config.config;
+            for (const ip of ips) {
+                const url = this.__getUrl(ip);
+                if (!this.__socketMap.has(url)) {
+                    taskList.push(this.connect(url));
                 }
-                await Promise.all(taskList);
-                await sleep(60 * 1000);
-            } catch (error) {
-                await sleep(1000);
             }
+            await Promise.all(taskList);
+            await sleep(60 * 1000);
+        } catch (error) {
+            await sleep(1000);
+        }
+    }
+
+    async connect(url: string) {
+        try {
+            const socket = await this.__connect(url);
+            this.__bindEvent(socket, url);
+        } catch (error) {
+            console.debug(error);
         }
     }
 
@@ -82,18 +89,7 @@ export class WebsocketHelper {
         });
         socket.on("disconnect", () => {
             this.__socketMap.delete(url);
-            this.__reconnect(url);
         });
-    }
-
-    private async __reconnect(url: string) {
-        try {
-            const socket = await this.__connect(url);
-            this.__bindEvent(socket, url);
-            this.__socketMap.set(url, socket);
-        } catch (error) {
-            console.debug(error);
-        }
     }
 
     getSocket() {
