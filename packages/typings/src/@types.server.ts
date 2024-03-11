@@ -99,6 +99,8 @@ declare global {
                 refuseReason?: TransactionMaker.NEW_TRANSACTION_REFUSE_REASON;
                 /**错误码 */
                 errorCode?: string;
+                /**错误信息 */
+                errorMessage?: string;
             };
             export type BroadcastTransactionSuccessReturn = {
                 success: true;
