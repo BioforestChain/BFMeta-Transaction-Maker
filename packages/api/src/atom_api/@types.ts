@@ -57,6 +57,9 @@ declare namespace TransactionMaker {
         type MacroCallApi = import("./atom_transaction").MacroCallApi;
         type IssueCertificateApi = import("./atom_transaction").IssueCertificateApi;
         type DestroyCertificateApi = import("./atom_transaction").DestroyCertificateApi;
+        type IncreaseAssetApi = import("./atom_transaction").IncreaseAssetApi;
+        type StakeAssetApi = import("./atom_transaction").StakeAssetApi;
+        type UnstakeAssetApi = import("./atom_transaction").UnstakeAssetApi;
 
         type UtilApi = import("./atom_transaction").UtilApi;
     }

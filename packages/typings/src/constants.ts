@@ -241,6 +241,13 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     TR_ISSUE_CERTIFICATE = "/generate/issueCertificate",
     /**创建销毁凭证事件 */
     TR_DESTROY_CERTIFICATE = "/generate/destroyCertificate",
+
+    /**创建增发权益事件 */
+    TR_INCREASE_ASSET = "/generate/increaseAsset",
+    /**创建质押权益事件 */
+    TR_STAKE_ASSET = "/generate/stakeAsset",
+    /**创建解除质押权益事件 */
+    TR_UNSTAKE_ASSET = "/generate/unstakeAsset",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {

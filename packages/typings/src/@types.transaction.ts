@@ -895,6 +895,56 @@ declare global {
                 };
             }
 
+            export interface IncreaseAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+                /**增发的权益信息 */
+                assetInfo: {
+                    /**增发的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位，默认主权益 */
+                    sourceChainMagic?: string;
+                    /**增发的权益所属链名，小写字母组成，5-20 位，默认主权益 */
+                    sourceChainName?: string;
+                    /**增发的权益类型，大写字母组成，3-10 个字符 */
+                    assetType: string;
+                    /**增发的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                    increasedAssetPrealnum: string;
+                };
+                /**冻结的主权益数量，0-9 组成并且不包含小数点 */
+                frozenMainAssetPrealnum: string;
+            }
+
+            export interface StakeAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+                /**质押的权益信息 */
+                assetInfo: {
+                    /**质押的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位，默认主权益 */
+                    sourceChainMagic?: string;
+                    /**质押的权益所属链名，小写字母组成，5-20 位，默认主权益 */
+                    sourceChainName?: string;
+                    /**质押的权益类型，大写字母组成，3-10 个字符，默认主权益 */
+                    assetType?: string;
+                    /**质押的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                    assetPrealnum: string;
+                };
+                /**质押的唯一索引：1-30 个字符，小写字母 + 数字 */
+                stakeId: string;
+                /**质押的权益开始接质押的区块间隔，0-9 组成并且不包含小数点 */
+                numberOfUnstakeHeight: number;
+            }
+
+            export interface UnstakeAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+                /**质押的权益信息 */
+                assetInfo: {
+                    /**质押的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位，默认主权益 */
+                    sourceChainMagic?: string;
+                    /**质押的权益所属链名，小写字母组成，5-20 位，默认主权益 */
+                    sourceChainName?: string;
+                    /**质押的权益类型，大写字母组成，3-10 个字符，默认主权益 */
+                    assetType?: string;
+                    /**解除质押的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                    assetPrealnum: string;
+                };
+                /**质押的唯一索引：1-30 个字符，小写字母 + 数字 */
+                stakeId: string;
+            }
+
             type TransactionMixJSON<AssetJSON extends object = object, Opts extends TransactionOptions = {}> = Opts["hasRecipientId"] extends true
                 ? Omit<TransactionJSON<AssetJSON>, "recipientId"> & { recipientId: string }
                 : Opts["hasRecipientId"] extends false
@@ -1630,6 +1680,56 @@ declare global {
                 /**销毁凭证事件附带信息 */
                 destroyCertificate: DestroyCertificateJSON;
             }
+            interface IncreaseAssetJSON {
+                /**增发的权益来源链名，小写字母组成，5-20 位 */
+                sourceChainName: string;
+                /**增发的权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                sourceChainMagic: string;
+                /**增发的权益类型，大写字母组成，3-10 个字符，默认主权益 */
+                assetType: string;
+                /**增发的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                increasedAssetPrealnum: string;
+                /**冻结的主权益数量，0-9 组成并且不包含小数点 */
+                frozenMainAssetPrealnum: string;
+            }
+            interface IncreaseAssetAssetJSON {
+                /**增发权益事件附带信息 */
+                increaseAsset: IncreaseAssetJSON;
+            }
+            interface StakeAssetJSON {
+                /**质押的唯一索引：1-30 个字符，小写字母 + 数字 */
+                stakeId: string;
+                /**质押的权益来源链名，小写字母组成，5-20 位 */
+                sourceChainName: string;
+                /**质押的权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                sourceChainMagic: string;
+                /**质押的权益类型，大写字母组成，3-10 个字符，默认主权益 */
+                assetType: string;
+                /**质押的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                assetPrealnum: string;
+                /**开始解除质押的区块高度 */
+                beginUnstakeHeight: number;
+            }
+            interface StakeAssetAssetJSON {
+                /**质押权益事件附带信息 */
+                stakeAsset: StakeAssetJSON;
+            }
+            interface UnstakeAssetJSON {
+                /**质押的唯一索引：1-30 个字符，小写字母 + 数字 */
+                stakeId: string;
+                /**质押的权益来源链名，小写字母组成，5-20 位 */
+                sourceChainName: string;
+                /**质押的权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                sourceChainMagic: string;
+                /**质押的权益类型，大写字母组成，3-10 个字符，默认主权益 */
+                assetType: string;
+                /**解除质押的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
+                assetPrealnum: string;
+            }
+            interface UnstakeAssetAssetJSON {
+                /**解除质押权益事件附带信息 */
+                unstakeAsset: UnstakeAssetJSON;
+            }
             //#endregion
 
             //#region Atom Transaction
@@ -1682,6 +1782,10 @@ declare global {
 
             type IssueCertificateTransactionJSON = TransactionMixJSON<IssueCertificateAssetJSON, { hasRecipientId: true }>;
             type DestroyCertificateTransactionJSON = TransactionMixJSON<DestroyCertificateAssetJSON, { hasRecipientId: true }>;
+
+            type IncreaseAssetTransactionJSON = TransactionMixJSON<IncreaseAssetAssetJSON, { hasRecipientId: true }>;
+            type StakeAssetTransactionJSON = TransactionMixJSON<StakeAssetAssetJSON, { hasRecipientId: false }>;
+            type UnstakeAssetTransactionJSON = TransactionMixJSON<UnstakeAssetAssetJSON, { hasRecipientId: false }>;
             //#endregion
         }
     }

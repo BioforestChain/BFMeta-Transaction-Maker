@@ -46,6 +46,8 @@ import {
     MacroCallApi,
     IssueCertificateApi,
     DestroyCertificateApi,
+    StakeAssetApi,
+    UnstakeAssetApi,
     UtilApi,
 } from "./atom_transaction";
 
@@ -109,6 +111,8 @@ export class TransactionApi {
         const macroCallApi = new MacroCallApi(networkHelper, utilApi);
         const issueCertificateApi = new IssueCertificateApi(networkHelper, utilApi);
         const destroyCertificateApi = new DestroyCertificateApi(networkHelper, utilApi);
+        const stakeAssetApi = new StakeAssetApi(networkHelper, utilApi);
+        const unstakeAssetApi = new UnstakeAssetApi(networkHelper, utilApi);
 
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
         TRANSACTION_API_MAP.set(signatureApi.GENERATE_API_PATH, signatureApi);
@@ -157,6 +161,8 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
         TRANSACTION_API_MAP.set(issueCertificateApi.GENERATE_API_PATH, issueCertificateApi);
         TRANSACTION_API_MAP.set(destroyCertificateApi.GENERATE_API_PATH, destroyCertificateApi);
+        TRANSACTION_API_MAP.set(stakeAssetApi.GENERATE_API_PATH, stakeAssetApi);
+        TRANSACTION_API_MAP.set(unstakeAssetApi.GENERATE_API_PATH, unstakeAssetApi);
 
         Object.freeze(TRANSACTION_API_MAP);
     }
@@ -796,15 +802,54 @@ export class TransactionApi {
         return result;
     }
 
-    /**创建销毁事件 */
+    /**创建销毁凭证事件 */
     async generateDestroyCertificate(argv: TransactionMaker.Transaction.DestroyCertificateTransactionParams, ip?: string) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
         const result = await api.generateTransaction(argv, ip);
         return result;
     }
-    /**发送销毁事件 */
+    /**发送销毁凭证事件 */
     async sendDestroyCertificate(argv: TransactionMaker.Transaction.DestroyCertificateTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
         const api = this.__getTransactionApi<TransactionMaker.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建增发权益事件 */
+    async generateIncreaseAsset(argv: TransactionMaker.Transaction.IncreaseAssetTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.IncreaseAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_INCREASE_ASSET);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送增发权益事件 */
+    async sendIncreaseAsset(argv: TransactionMaker.Transaction.IncreaseAssetTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.IncreaseAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_INCREASE_ASSET);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建质押权益事件 */
+    async generateStakeAsset(argv: TransactionMaker.Transaction.StakeAssetTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.StakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_STAKE_ASSET);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送质押权益事件 */
+    async sendStakeAsset(argv: TransactionMaker.Transaction.StakeAssetTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.StakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_STAKE_ASSET);
+        const result = await api.sendTransaction(argv, ipInfo);
+        return result;
+    }
+
+    /**创建解除质押权益事件 */
+    async generateUnstakeAsset(argv: TransactionMaker.Transaction.UnstakeAssetTransactionParams, ip?: string) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.UnstakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_UNSTAKE_ASSET);
+        const result = await api.generateTransaction(argv, ip);
+        return result;
+    }
+    /**发送解除质押权益事件 */
+    async sendUnstakeAsset(argv: TransactionMaker.Transaction.UnstakeAssetTransactionParams, ipInfo: TransactionMaker.IpInfo = {}) {
+        const api = this.__getTransactionApi<TransactionMaker.Transaction.UnstakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_UNSTAKE_ASSET);
         const result = await api.sendTransaction(argv, ipInfo);
         return result;
     }

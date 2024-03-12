@@ -56,4 +56,8 @@ export * from "./macroCallApi";
 export * from "./issueCertificateApi";
 export * from "./destroyCertificateApi";
 
+export * from "./increaseAssetApi";
+export * from "./stakeAssetApi";
+export * from "./unstakeAssetApi";
+
 export * from "./utilApi";
