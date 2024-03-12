@@ -1,6 +1,6 @@
 {
     "name": "@bfmeta/transaction-maker-api",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "transaction-maker-api for the third party",
     "main": "build/cjs/index.js",
     "type": "commonjs",
@@ -14,7 +14,7 @@
     },
     "license": "cc-by-4.0",
     "dependencies": {
-        "@bfmeta/transaction-maker-typings": "1.1.5",
+        "@bfmeta/transaction-maker-typings": "1.1.6",
         "socket.io-client": "^4.6.1"
     },
     "gitHead": "985d104ee31422b5a72b208507f0e746aa921929",
