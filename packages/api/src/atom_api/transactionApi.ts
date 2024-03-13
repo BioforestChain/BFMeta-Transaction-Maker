@@ -46,6 +46,7 @@ import {
     MacroCallApi,
     IssueCertificateApi,
     DestroyCertificateApi,
+    IncreaseAssetApi,
     StakeAssetApi,
     UnstakeAssetApi,
     UtilApi,
@@ -111,6 +112,7 @@ export class TransactionApi {
         const macroCallApi = new MacroCallApi(networkHelper, utilApi);
         const issueCertificateApi = new IssueCertificateApi(networkHelper, utilApi);
         const destroyCertificateApi = new DestroyCertificateApi(networkHelper, utilApi);
+        const increaseAssetApi = new IncreaseAssetApi(networkHelper, utilApi);
         const stakeAssetApi = new StakeAssetApi(networkHelper, utilApi);
         const unstakeAssetApi = new UnstakeAssetApi(networkHelper, utilApi);
 
@@ -161,6 +163,7 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
         TRANSACTION_API_MAP.set(issueCertificateApi.GENERATE_API_PATH, issueCertificateApi);
         TRANSACTION_API_MAP.set(destroyCertificateApi.GENERATE_API_PATH, destroyCertificateApi);
+        TRANSACTION_API_MAP.set(increaseAssetApi.GENERATE_API_PATH, increaseAssetApi);
         TRANSACTION_API_MAP.set(stakeAssetApi.GENERATE_API_PATH, stakeAssetApi);
         TRANSACTION_API_MAP.set(unstakeAssetApi.GENERATE_API_PATH, unstakeAssetApi);
 
