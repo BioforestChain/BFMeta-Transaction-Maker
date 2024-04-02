@@ -898,6 +898,8 @@ declare global {
             export interface IncreaseAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
                 /**增发的权益信息 */
                 assetInfo: {
+                    /**权益的发行地址 */
+                    applyAddress: string;
                     /**增发的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位，默认主权益 */
                     sourceChainMagic?: string;
                     /**增发的权益所属链名，小写字母组成，5-20 位，默认主权益 */
