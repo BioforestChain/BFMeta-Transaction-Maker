@@ -408,6 +408,8 @@ declare global {
                     entityId: string;
                     /**非同质资产流通需要缴纳的版税 */
                     taxAssetPrealnum?: string;
+                    /**非同质资产版税的接收账户 */
+                    taxAssetRecipientId?: string;
                     /**非同质资产模板的拥有者 */
                     entityFactoryPossessor: string;
                     /**非同质资产的模板 */
@@ -629,6 +631,8 @@ declare global {
                         entityId: string;
                         /**非同质资产流通需要缴纳的版税 */
                         taxAssetPrealnum?: string;
+                        /**非同质资产版税的接收账户 */
+                        taxAssetRecipientId?: string;
                     }[];
                     /**非同质资产模板的拥有者 */
                     entityFactoryPossessor: string;
@@ -1362,6 +1366,8 @@ declare global {
             interface IssueEntityV1JSON extends IssueEntityJSON {
                 /**非同质资产流通需要缴纳的版税 */
                 taxAssetPrealnum: string;
+                /**非同质资产版税的接收账户 */
+                taxAssetRecipientId?: string;
             }
             interface IssueEntityAssetV1JSON {
                 /**发行非同质资产事件附带信息 */
@@ -1521,6 +1527,8 @@ declare global {
                 entityId: string;
                 /**非同质资产流通需要缴纳的版税 */
                 taxAssetPrealnum: string;
+                /**非同质资产版税的接收账户 */
+                taxAssetRecipientId?: string;
             }
 
             interface IssueEntityMultiV1JSON {
