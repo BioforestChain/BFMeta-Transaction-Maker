@@ -156,15 +156,13 @@ declare global {
                     genesisLocationName: string;
                     /**每轮的区块数量 */
                     blockPerRound: number;
-                    /**创世受托人数量 */
-                    delegates: number;
                     /**区块间隔 */
                     forgeInterval: number;
-                    /**创世受托人列表 */
-                    genesisDelegates: {
-                        /**创世受托人地址 */
+                    /**创世锻造者列表 */
+                    genesisGenerators: {
+                        /**创世锻造者地址 */
                         address: string;
-                        /**创世受托人公钥 */
+                        /**创世锻造者公钥 */
                         publicKey: string;
                     }[];
                 };
